@@ -7,4 +7,13 @@ extern "C" int ReadAnalog(int ch_adc);
 
 int main(){
     InitHardware();
+    
+    //For following the line.  First thoughts from Lecture 20/04/16
+    take_picture();
+    int sum = 0;
+    int i;
+    for (i=-160, i<160, i++){
+        w = get_pixel(120, i, 3);
+        sum = sum+i*w;
+    }
 }
