@@ -14,6 +14,12 @@ int main(){
     int i;
     for (i=-160, i<160, i++){
         w = get_pixel(120, i, 3);
+        if(w<127){
+            w = 0;
+        }
+        else if(w>=127){
+            w = 255;
+        }
         sum = sum+i*w;
     }
 }
