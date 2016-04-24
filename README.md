@@ -17,28 +17,28 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 
 ## Team Objectives
 
-##### Week One
+##### Week One [22/04/16]
 - Project plan completed
 - GitHub repository created
 - Preliminary Meeting outside of Lab
 
-##### Week Three
+##### Week Three [29/04/16]
 - Quadrant One Completed
 
-##### Week Four
+##### Week Four [13/05/16]
 - Quadrant Two Completed
 - Progress Report Completed
 
-##### Week Five
+##### Week Five [20/05/16]
 - Quadrant Three Completed
 
-##### Week Six
+##### Week Six [27/05/16]
 - Quadrant Four Completed
 
-##### Week Eight
+##### Week Eight [10/06/16]
 - Robot Completed
 
-##### Week Nine
+##### Week Nine [13/06/16]
 - Final Report Completed
 
 ## Individual Tasks
