@@ -56,7 +56,7 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [ ] [ALL]: Discuss Ideas and start on AVC code
 - [ ] Rhaz: Keep up to date on weekly tasks
 - [ ] Jacob: Robot moving in a straight line
-- [ ] Andrew: Complete AVC-Code README.md
+- [x] Andrew: Complete AVC-Code README.md
 - [ ] Mitchel: Work out how to open Quadrant One gate with Networking
 - [ ] Theo: Study CAD
-- [ ] Julius: 
+- [ ] Julius: Showing up
