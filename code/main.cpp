@@ -10,6 +10,18 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture();
 
+void move (int left, int right, int sleep)
+{
+    set_motor(1, left);
+    set_motor(2, right);
+    Sleep(0,ms)
+}
+
+void stop ()
+{
+    set_motor(1,0);
+    set_motor(2,0);
+}
 
 int main(){
     init(0);
@@ -38,11 +50,9 @@ int main(){
         sum = sum+i*w;
     }
     if(sum>10000){
-    set_motor(1, 255);
-    set_motor(2, 255);
-    Sleep(1,0);
-    set_motor(1,0);
-    set_motor(2,0);
+    
+    move(255,255,500000);
+    stop();
     
     }
     return 0;
