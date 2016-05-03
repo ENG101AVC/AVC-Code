@@ -5,9 +5,20 @@ extern "C" int init(int d_lev);
 extern "C" int set_motor(int motor , int speed );
 extern "C" int Sleep( int sec , int usec );
 extern "C" int take_picture();
+extern "C" int connect_to_server( char server_addr[15],int port);
+extern "C" int send_to_server(char message[24]);
+extern "C" int receive_from_server(char message[24]);
 
 int main(){
     init(0);
+    
+    //Open Gate
+    connect_to_server(130.195.6.196, 1024);
+    send_to_server("Where is Julius?"); //Might be 123456
+    
+    int message = receive_from_server("Hello");
+    
+    //Follow Line
     set_motor(1, 255);
     set_motor(2, 255);
     Sleep(1,0);
