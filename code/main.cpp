@@ -45,4 +45,5 @@ int main(){
     set_motor(2,0);
     
     }
+    return 0;
 }
