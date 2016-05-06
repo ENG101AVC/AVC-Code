@@ -48,7 +48,7 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [x] Rhaz: Organise Meeting
 - [x] Jacob: Create GitHub and Establish Facebook Chat
 - [x] Andrew: Study SSH for Thursday Meeting
-- [x] Mitchel: Study Unit Testing
+- [x] Mitchell: Study Unit Testing
 - [x] Theo: Construct Model Chassis
 - [x] Julius: Get in contact with group
 
@@ -57,6 +57,6 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [ ] Rhaz: Keep up to date on weekly tasks
 - [ ] Jacob: Robot moving in a straight line
 - [x] Andrew: Complete AVC-Code README.md
-- [ ] Mitchel: Work out how to open Quadrant One gate with Networking
+- [ ] Mitchell: Work out how to open Quadrant One gate with Networking
 - [ ] Theo: Study CAD
 - [ ] Julius: Showing up
