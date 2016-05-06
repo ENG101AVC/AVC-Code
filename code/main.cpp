@@ -10,9 +10,17 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture();
 
+const int CONST_PROPORTIONAL = 1;
+const int CONST_DIFFERENTIAL = 0;
+const int CONST_INTEGRAL = 0;
+
+int SUM_PREV; //FOR WHEN WE USE DIFFERENTIATE
+int SUM_TIME; //FOR WHEN WE DIFFERENTIATE
+
 int main(){
     init(0);
     network();
+    follow_the_line();
     return 0;
 }
 
@@ -25,4 +33,23 @@ void network() {
    receive_from_server(message); //this may be buggy!
    //printf("%s", message);
    send_to_server(message);
+}
+
+void follow_the_line(){
+    take_picture();
+    int sum; // 
+    int c; //maybe char
+    int i;
+    for (i=-160; i <= 160; i++){
+        c = get_pixel(120, i, 3);
+        if(c>127){c=1;}
+        else{c=0;}
+        sum = sum + c*i;
+    }
+    printf(sum); //make sure 127 + sum IS NOT GREATER THAN 255
+    
+    int motor_adjustment = sum*CONST_PROPORTIONAL;
+    
+    set_motor(1, 127 + motor_adjustment);
+    set_motor(2, 127 - motor_adjustment);
 }
