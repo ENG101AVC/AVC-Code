@@ -10,50 +10,19 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture();
 
-void move (int left, int right, int sleep)
-{
-    set_motor(1, left);
-    set_motor(2, right);
-    Sleep(0,ms)
-}
-
-void stop ()
-{
-    set_motor(1,0);
-    set_motor(2,0);
-}
-
 int main(){
     init(0);
-    
-    //Open Gate
-//    connect_to_server(130.195.6.196, 1024);
-//  send_to_server("Where is Julius?"); //Might be 123456
-    
-//    int message = receive_from_server("Hello");
-    
-    //Follow Line
-
-   
-    //For following the line.  First thoughts from Lecture 20/04/16
-    take_picture();
-   int sum = 0;
-    int i;
-    for (i=-160, i<160, i++){
-        w = get_pixel(120, i, 3);
-        if(w<127){
-            w = 0;
-        }
-        else if(w>=127){
-            w = 255;
-        }
-        sum = sum+i*w;
-    }
-    if(sum>10000){
-    
-    move(255,255,500000);
-    stop();
-    
-    }
+    network();
     return 0;
+}
+
+void network() {
+    connect_to_server("192.168.1.2", 1024);
+   //sends a message to the connected server
+   send_to_server("Hello server");
+   //receives message from the connected server
+   char message[24];
+   receive_from_server(message); //this may be buggy!
+   //printf("%s", message);
+   send_to_server(message);
 }
