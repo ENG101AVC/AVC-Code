@@ -17,7 +17,7 @@ int main(){
 }
 
 void network() {
-    connect_to_server("192.168.1.2", 1024);
+    connect_to_server("192.168.1.2", 1024); //TODO: fix Server IP
    //sends a message to the connected server
    send_to_server("Hello server");
    //receives message from the connected server
