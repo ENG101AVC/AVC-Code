@@ -17,13 +17,6 @@ const int CONST_INTEGRAL = 0;
 int SUM_PREV; //FOR WHEN WE USE DIFFERENTIATE
 int SUM_TIME; //FOR WHEN WE DIFFERENTIATE
 
-int main(){
-    init(0);
-    network();
-    follow_the_line();
-    return 0;
-}
-
 void network() {
     connect_to_server("192.168.1.2", 1024); //TODO: fix Server IP
    //sends a message to the connected server
@@ -52,4 +45,11 @@ void follow_the_line(){
     
     set_motor(1, 127 + motor_adjustment);
     set_motor(2, 127 - motor_adjustment);
+}
+
+int main(){
+    init(0);
+    network();
+    follow_the_line();
+    return 0;
 }
