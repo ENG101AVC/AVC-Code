@@ -70,7 +70,7 @@ while(n>10000){
    }
 n++;	
 }
-    Sleep(1,0)
+    Sleep(1,0);
     set_motor(1, 0);
     set_motor(2, 0);
     return 0;
