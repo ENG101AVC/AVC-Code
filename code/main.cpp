@@ -57,7 +57,7 @@ int main(){
 //    network();
 //    follow_the_line();
 int n = 0;
-while(n>10000){
+while(n<10000){
    take_picture();
    int pixel = get_pixel(160,120, 3);
    if(pixel>127){
