@@ -1,10 +1,18 @@
+Updates:
 Started off with just the pi, a couple of motors with wheels and a board to hold them all together.
--attatched all components to board - had some issues with screw sizes and space portioning.
+Attatched all components to board - had some issues with screw sizes and space portioning.
 
 Some of the terminal blocks on the R pi got in the way of the plastic spacers.
-To overcome this issue I switched the orientation of the R pi and the PCB and used just screws at the places where spacers would not fit and cutting down longer spacers to fill gaps.
+To overcome this issue I switched the orientation of the R pi and the PCB and used just screws at the places where spacers 
+would not fit and cutting down longer spacers to fill gaps.
 This has enabled all points of the R pi and PCB to be secured.
 
 Replaced the main board with a shorter board in the hopes that this would make it easier for the robot to traverse the maze.
 
 Attached the camera using default parts, one of which I needed to cut a notch into to accommodate a bolt.
+
+Ideas:
+Possible case to put over robot to hide parts and make it aesthetically pleasing designs include;
+Dalek - possible issues with weight distribution, could overbalance when turning tight corners, size navigating maze(too big)
+Apache Helicoptor - possible issues with size navigating maze unless the rotors sit above the maze walls, no guns
+Dragon - possible issues with Rhaz accepting the idea
