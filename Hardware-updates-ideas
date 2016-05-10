@@ -11,6 +11,12 @@ Replaced the main board with a shorter board in the hopes that this would make i
 
 Attached the camera using default parts, one of which I needed to cut a notch into to accommodate a bolt.
 
+Replaced rear trolley wheel with a half ping pong ball in 3d printed socket (Third Wheel.stl).
+This is because the trolley wheel was just bad and wasn’t going to turn with the robot, the ping pong ball won’t turn but has very little friction in all directions and is lower than the old wheel which balances the robot.
+
+Printed battery stand for top… there were…  issues (don’t worry I hate myself too).
+
+
 Ideas:
 Possible case to put over robot to hide parts and make it aesthetically pleasing designs include;
 Dalek - possible issues with weight distribution, could overbalance when turning tight corners, size navigating maze(too big)
