@@ -53,10 +53,19 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [x] Julius: Get in contact with group
 
 ##### Week Two
-- [ ] [ALL]: Discuss Ideas and start on AVC code
-- [ ] Rhaz: Keep up to date on weekly tasks
-- [ ] Jacob: Robot moving in a straight line
+- [x] [ALL]: Discuss Ideas and start on AVC code
+- [x] Rhaz: Keep up to date on weekly tasks
+- [ ] Jacob: Robot moving in a straight line - it's moving but haven't field tested with battery yet - Postponed
 - [x] Andrew: Complete AVC-Code README.md
-- [ ] Mitchell: Work out how to open Quadrant One gate with Networking
-- [ ] Theo: Study CAD
-- [ ] Julius: Showing up
+- [x] Mitchell: Work out how to open Quadrant One gate with Networking
+- [x] Theo: Study CAD
+- [ ] Julius: Showing up - Poor effort - Postponed
+
+##### Week Three
+- [x] [ALL]: Progress update with team members ( - Julius)
+- [ ] Rhaz: Robot moving to follow line
+- [ ] Jacob: Robot opens gate and moves through it
+- [x] Andrew: Robot opens the gate
+- [x] Mitchell: Update README create Hardware updates-ideas and assist in hardware difficulties
+- [x] Theo: Construct non-powered wheel case and battery case for robot
+- [ ] Julius: Showing up & contributing to team meetings
