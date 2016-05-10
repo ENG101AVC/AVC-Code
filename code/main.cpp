@@ -35,7 +35,7 @@ void follow_the_line(){
     int c; //maybe char
     int i;
     for (i=-160; i <= 160; i++){
-        c = get_pixel(120, i, 3);
+        c = get_pixel(120, i+160, 3);
         if(c>127){c=1;}
         else{c=0;}
         sum = sum + c*i;
@@ -55,8 +55,8 @@ void follow_the_line(){
 int main(){
     init(0);
 //    network();
-//    follow_the_line();
-int n = 0;
+    follow_the_line();
+/*int n = 0;
 while(n<10000){
    take_picture();
    int pixel = get_pixel(160,120, 3);
@@ -70,6 +70,7 @@ while(n<10000){
    }
 n++;	
 }
+*/
     Sleep(1,0);
     set_motor(1, 0);
     set_motor(2, 0);
