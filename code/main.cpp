@@ -34,8 +34,8 @@ void follow_the_line(){
     int sum; // 
     int c; //maybe char
     int i;
-    for (i=-160; i <= 160; i++){
-        c = get_pixel(120, i+160, 3);
+    for (i=-120; i < 120; i++){
+        c = get_pixel(160, i+120, 3);
         if(c>127){c=1;}
         else{c=0;}
         sum = sum + c*i;
