@@ -62,10 +62,19 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [ ] Julius: Showing up - Poor effort - Postponed
 
 ##### Week Three
-- [x] [ALL]: Progress update with team members ( - Julius)
-- [ ] Rhaz: Robot moving to follow line
-- [ ] Jacob: Robot opens gate and moves through it
+- [ ] [ALL]: Progress update with team members and writing progress report ( - Julius)
+- [x] Rhaz: Robot opens gate
+- [x] Jacob: Robot opens gate
 - [x] Andrew: Robot opens the gate
 - [x] Mitchell: Update README create Hardware updates-ideas and assist in hardware difficulties
 - [x] Theo: Construct non-powered wheel case and battery case for robot
 - [ ] Julius: Showing up & contributing to team meetings
+
+##### Week Four
+- [ ] [All]: Progress update with team members
+- [ ] Rhaz: Quadrant 1 completed
+- [ ] Jacob: Quadrant 1 completed
+- [ ] Andrew: Quadrant 1 completed
+- [ ] Mitchell: Assist in hardware and quadrant 2
+- [ ] Theo: Attaching sensors to robot to deal with walls and obstructions
+- [ ] Julius: Contributing
