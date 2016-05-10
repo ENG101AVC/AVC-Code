@@ -18,9 +18,10 @@ int SUM_PREV; //FOR WHEN WE USE DIFFERENTIATE
 int SUM_TIME; //FOR WHEN WE DIFFERENTIATE
 
 void network() {
-    connect_to_server("192.168.1.2", 1024); //TODO: fix Server IP
+    connect_to_server("130.195.6.196", 1024); //TODO: fix Server IP
    //sends a message to the connected server
-   send_to_server("Hello server");
+   send_to_server("Please");
+
    //receives message from the connected server
    char message[24];
    receive_from_server(message); //this may be buggy!
@@ -39,9 +40,13 @@ void follow_the_line(){
         else{c=0;}
         sum = sum + c*i;
     }
-    printf(sum); //make sure 127 + sum IS NOT GREATER THAN 255
+    printf("%d", sum); //make sure 127 + sum IS NOT GREATER THAN 255
     
     int motor_adjustment = sum*CONST_PROPORTIONAL;
+    if (motor_adjustment > 125 || motor_adjustment < -125){
+	motor_adjustment=125;
+    }
+	
     
     set_motor(1, 127 + motor_adjustment);
     set_motor(2, 127 - motor_adjustment);
@@ -49,7 +54,13 @@ void follow_the_line(){
 
 int main(){
     init(0);
-    network();
-    follow_the_line();
+//    network();
+//    follow_the_line();
+
+    set_motor(1, 127);
+    set_motor(2, 127);
+    Sleep(1,0);
+    set_motor(1, 0);
+    set_motor(2, 0);
     return 0;
 }
