@@ -56,10 +56,21 @@ int main(){
     init(0);
 //    network();
 //    follow_the_line();
-
-    set_motor(1, 127);
-    set_motor(2, 127);
-    Sleep(1,0);
+int n = 0;
+while(n>10000){
+   take_picture();
+   int pixel = get_pixel(160,120, 3);
+   if(pixel>127){
+   	set_motor(1,127);
+   	set_motor(2,127);
+   }
+   else{
+   	set_motor(1,0);
+   	set_motor(2,0);
+   }
+n++;	
+}
+    Sleep(1,0)
     set_motor(1, 0);
     set_motor(2, 0);
     return 0;
