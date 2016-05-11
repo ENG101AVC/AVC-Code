@@ -17,6 +17,13 @@ const int CONST_INTEGRAL = 0;
 int SUM_PREV; //FOR WHEN WE USE DIFFERENTIATE
 int SUM_TIME; //FOR WHEN WE DIFFERENTIATE
 
+int main(){
+    init(0);
+    network();
+    //follow_the_line();
+    return 0;
+}
+
 void network() {
     connect_to_server("130.195.6.196", 1024); //TODO: fix Server IP
    //sends a message to the connected server
@@ -52,27 +59,4 @@ void follow_the_line(){
     set_motor(2, 127 - motor_adjustment);
 }
 
-int main(){
-    init(0);
-//    network();
-    follow_the_line();
-/*int n = 0;
-while(n<10000){
-   take_picture();
-   int pixel = get_pixel(160,120, 3);
-   if(pixel>127){
-   	set_motor(1,127);
-   	set_motor(2,127);
-   }
-   else{
-   	set_motor(1,0);
-   	set_motor(2,0);
-   }
-n++;	
-}
-*/
-    Sleep(1,0);
-    set_motor(1, 0);
-    set_motor(2, 0);
-    return 0;
-}
+
