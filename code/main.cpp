@@ -44,17 +44,15 @@ void follow_the_line(){
         sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
     }
     //Ideally sum_of_pixels = 0.
-    set_motor(1, 127 - sum_of_pixels*CONST_PROPORTIONAL);
-    set_motor(2, 127 + sum_of_pixels*CONST_PROPORTIONAL);
+    set_motor(1, 127 + sum_of_pixels*CONST_PROPORTIONAL);
+    set_motor(2, 127 - sum_of_pixels*CONST_PROPORTIONAL);
 }
 
 //LEAVE AT BOTTOM OF CODE
 int main(){
     init(0);
     //network();
-    //follow_the_line();
-    set_motor(2,127);
-    Sleep(3,0);
-    set_motor(2,0);
+    follow_the_line();
+    
     return 0;
 }
