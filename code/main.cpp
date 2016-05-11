@@ -49,6 +49,9 @@ void follow_the_line(){
 int main(){
     init(0);
     //network();
-    follow_the_line();
+    //follow_the_line();
+    set_motor(1,127);
+    Sleep(3,0);
+    set_motor(1,0);
     return 0;
 }
