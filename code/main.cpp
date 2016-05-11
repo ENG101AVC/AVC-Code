@@ -34,7 +34,7 @@ void follow_the_line(){
     int sum_of_pixels; // 
     int specific_pixel; //maybe char
  
-    for (iteration=-160; iteration =< 160; i++){
+    for (int iteration=-160; iteration <= 160; iteration++){
         specific_pixel = get_pixel(120, iteration+160, 3);
         if(specific_pixel>127){specific_pixel=1;}
         else{specific_pixel=0;}
