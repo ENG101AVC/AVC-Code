@@ -31,31 +31,24 @@ void network() {
 
 void follow_the_line(){
     take_picture();
-    int sum; // 
-    int c; //maybe char
-    int i;
-    for (i=-120; i < 120; i++){
-        c = get_pixel(160, i+120, 3);
-        if(c>127){c=1;}
-        else{c=0;}
-        sum = sum + c*i;
+    int sum_of_pixels; // 
+    int specific_pixel; //maybe char
+ 
+    for (iteration=-160; iteration =< 160; i++){
+        specific_pixel = get_pixel(120, iteration+160, 3);
+        if(specific_pixel>127){specific_pixel=1;}
+        else{specific_pixel=0;}
+        sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
     }
-    printf("%d", sum); //make sure 127 + sum IS NOT GREATER THAN 255
-    
-    int motor_adjustment = sum*CONST_PROPORTIONAL;
-    if (motor_adjustment > 125 || motor_adjustment < -125){
-	motor_adjustment=125;
-    }
-	
-    
-    set_motor(1, 127 + motor_adjustment);
-    set_motor(2, 127 - motor_adjustment);
+    //Ideally sum_of_pixels = 0.
+    set_motor(1, 127 - sum_of_pixels*CONST_PROPORTIONAL);
+    set_motor(2, 127 + sum_of_pixels*CONST_PROPORTIONAL);
 }
 
 //LEAVE AT BOTTOM OF CODE
 int main(){
     init(0);
-    network();
-    //follow_the_line();
+    //network();
+    follow_the_line();
     return 0;
 }
