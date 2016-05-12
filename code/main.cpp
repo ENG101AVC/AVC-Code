@@ -35,12 +35,12 @@ void network() {
 void follow_the_line(){
     int testClock = 0;
     while(testClock<1){
-        int take_picture();
+        int camera = take_picture();
         double sum_of_pixels = 0;  
         char specific_pixel= 0; 
  
         for (int iteration=-160; iteration < 160; iteration++){
-            specific_pixel = get_pixel(iteration+160, 120, 3);
+            specific_pixel = camera.get_pixel(iteration+160, 120, 3);
             if(specific_pixel>127){specific_pixel=1;}
             else{specific_pixel=0;}
             
