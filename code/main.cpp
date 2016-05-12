@@ -45,8 +45,8 @@ void follow_the_line(){
     }
     
     //Ideally sum_of_pixels = 0.
-    set_motor(1, 127 + sum_of_pixels*CONST_PROPORTIONAL*127/120);
-    set_motor(2, 127 - sum_of_pixels*CONST_PROPORTIONAL*127/120);
+    set_motor(1, sum_of_pixels*CONST_PROPORTIONAL);
+    set_motor(2, sum_of_pixels*CONST_PROPORTIONAL*-1);
     Sleep(0,200000);
 }
 
@@ -55,7 +55,7 @@ int main(){
     init(0);
     //network();
     int testClock = 0;
-    while(testClock<50){
+    while(testClock<100){
         follow_the_line();
         testClock++;
     }
