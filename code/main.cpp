@@ -51,8 +51,8 @@ void follow_the_line(){
     }
     
     //Ideally sum_of_pixels = 0.
-    set_motor(1, 127 + sum_of_pixels*CONST_PROPORTIONAL/160*127);
-    set_motor(2, 127 - sum_of_pixels*CONST_PROPORTIONAL/160*127);
+    set_motor(1, 127 + sum_of_pixels*CONST_PROPORTIONAL*127/160);
+    set_motor(2, 127 - sum_of_pixels*CONST_PROPORTIONAL*127/160);
 }
 
 //LEAVE AT BOTTOM OF CODE
