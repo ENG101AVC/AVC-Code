@@ -46,8 +46,8 @@ void follow_the_line(){
     
     int proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
     //Ideally sum_of_pixels = 0.
-    set_motor(1, 127+(proportional_signal/(160*1*CONST_PROPORTIONAL))*127);
-    set_motor(2, 127+(proportional_signal/(160*-1*CONST_PROPORTIONAL))*127);
+    set_motor(1, 50+(proportional_signal/(160*1*CONST_PROPORTIONAL))*50);
+    set_motor(2, 50+(proportional_signal/(160*-1*CONST_PROPORTIONAL))*50);
     Sleep(0,200000);
 }
 
