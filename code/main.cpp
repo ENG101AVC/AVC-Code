@@ -33,6 +33,10 @@ void network() {
 }
 
 void follow_the_line(){
+    
+    int testClock = 0;
+    while(testClock<30){
+    
     take_picture();
     double sum_of_pixels; // 
     double specific_pixel; //maybe char
@@ -51,16 +55,16 @@ void follow_the_line(){
     set_motor(2, (proportional_signal/(160*1*CONST_PROPORTIONAL))*255);
     Sleep(0, 200000);
 }
+    testClock++;
+}
 
 //LEAVE AT BOTTOM OF CODE
 int main(){
     init(0);
     //network();
-    int testClock = 0;
-    while(testClock<30){
-        follow_the_line();
-        testClock++;
-    }
+    follow_the_line();
+    
+    
     
     set_motor(1,0);
     set_motor(2,0);
