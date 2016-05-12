@@ -37,16 +37,17 @@ void follow_the_line(){
     int sum_of_pixels; // 
     int specific_pixel; //maybe char
  
-    for (int iteration=-120; iteration < 120; iteration++){
-        specific_pixel = get_pixel(160, iteration+120, 3);
+    for (int iteration=-160; iteration < 160; iteration++){
+        specific_pixel = get_pixel(iteration+160, 120, 3);
         if(specific_pixel>127){specific_pixel=1;}
         else{specific_pixel=0;}
         sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
     }
     
+    int proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
     //Ideally sum_of_pixels = 0.
-    set_motor(1, sum_of_pixels*CONST_PROPORTIONAL);
-    set_motor(2, sum_of_pixels*CONST_PROPORTIONAL*-1);
+    set_motor(1, (proportional_signal/(160*1*CONST_PROPORTIONAL))*255);
+    set_motor(2, (proportional_signal/(160*-1*CONST_PROPORTIONAL))*255);
     Sleep(0,200000);
 }
 
