@@ -45,11 +45,11 @@ void follow_the_line(){
     }
     
     int proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
-    printf("The Proportional Signal is:  %d", proportional_signal);
+    printf("The Proportional Signal is:  %d\n", proportional_signal);
     //Ideally sum_of_pixels = 0.
     set_motor(1, 50+(proportional_signal/(160*1*CONST_PROPORTIONAL))*50);
     set_motor(2, 50+(proportional_signal/(160*-1*CONST_PROPORTIONAL))*50);
-    Sleep(0,200000);
+    display_picture(0, 200000);
 }
 
 //LEAVE AT BOTTOM OF CODE
