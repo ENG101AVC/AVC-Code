@@ -56,10 +56,13 @@ int main(){
     init(0);
     //network();
     int testClock = 0;
-    while(testClock<100){
+    while(testClock<10){
         follow_the_line();
         testClock++;
     }
+    
+    set_motor(1,0);
+    set_motor(2,0);
     
     return 0;
 }
