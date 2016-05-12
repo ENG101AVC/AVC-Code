@@ -33,29 +33,28 @@ void network() {
 }
 
 void follow_the_line(){
-    
     int testClock = 0;
     while(testClock<30){
-    
-    take_picture();
-    double sum_of_pixels; // 
-    double specific_pixel; //maybe char
+        take_picture();
+        double sum_of_pixels = 0;  
+        double specific_pixel; 
  
-    for (int iteration=-160; iteration < 160; iteration++){
-        specific_pixel = get_pixel(iteration+160, 120, 3);
-        if(specific_pixel>127){specific_pixel=1;}
-        else{specific_pixel=0;}
-        sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
-    }
+        for (int iteration=-160; iteration < 160; iteration++){
+            specific_pixel = get_pixel(iteration+160, 120, 3);
+            if(specific_pixel>127){specific_pixel=1;}
+            else{specific_pixel=0;}
+            sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
+        }
     
-    double proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
-    printf("The Proportional Signal is:  %f\n", proportional_signal);
-    //Ideally sum_of_pixels = 0.
-    set_motor(1, (proportional_signal/(160*-1*CONST_PROPORTIONAL))*255);
-    set_motor(2, (proportional_signal/(160*1*CONST_PROPORTIONAL))*255);
-    Sleep(0, 200000);
-}
-    testClock++;
+        double proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
+        printf("The Proportional Signal is:  %f\n", proportional_signal);
+    
+        //Ideally sum_of_pixels = 0.
+        set_motor(1, (proportional_signal/(160*-1*CONST_PROPORTIONAL))*255);
+        set_motor(2, (proportional_signal/(160*1*CONST_PROPORTIONAL))*255);
+        Sleep(0, 200000);
+        testClock++;
+    }
 }
 
 //LEAVE AT BOTTOM OF CODE
@@ -63,9 +62,7 @@ int main(){
     init(0);
     //network();
     follow_the_line();
-    
-    
-    
+
     set_motor(1,0);
     set_motor(2,0);
     
