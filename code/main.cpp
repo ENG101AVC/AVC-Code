@@ -37,7 +37,7 @@ void follow_the_line(){
     while(testClock<30){
         take_picture();
         double sum_of_pixels = 0;  
-        double specific_pixel= 0; 
+        double specific_pixel= 1; 
  
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = get_pixel(iteration+160, 120, 3);
