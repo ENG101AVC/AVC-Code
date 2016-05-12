@@ -10,7 +10,7 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const int CONST_PROPORTIONAL = 1;
+const double CONST_PROPORTIONAL = 1;
 const int CONST_DIFFERENTIAL = 0;
 const int CONST_INTEGRAL = 0;
 
@@ -34,8 +34,8 @@ void network() {
 
 void follow_the_line(){
     take_picture();
-    int sum_of_pixels; // 
-    int specific_pixel; //maybe char
+    double sum_of_pixels; // 
+    double specific_pixel; //maybe char
  
     for (int iteration=-160; iteration < 160; iteration++){
         specific_pixel = get_pixel(iteration+160, 120, 3);
@@ -47,8 +47,8 @@ void follow_the_line(){
     double proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
     printf("The Proportional Signal is:  %d\n", proportional_signal);
     //Ideally sum_of_pixels = 0.
-    set_motor(1, 50+(proportional_signal/(160*-1*CONST_PROPORTIONAL))*50);
-    set_motor(2, 50+(proportional_signal/(160*1*CONST_PROPORTIONAL))*50);
+    set_motor(1, (proportional_signal/(160*-1*CONST_PROPORTIONAL))*255);
+    set_motor(2, (proportional_signal/(160*1*CONST_PROPORTIONAL))*255);
     Sleep(0, 200000);
 }
 
