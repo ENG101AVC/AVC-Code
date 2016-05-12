@@ -38,7 +38,7 @@ void follow_the_line(){
     int specific_pixel; //maybe char
  
     for (int iteration=-160; iteration < 159; iteration++){
-        specific_pixel = get_pixel(120, iteration+161, 3);
+        specific_pixel = get_pixel(120, iteration+160, 3);
         if(specific_pixel>127){specific_pixel=1;}
         else{specific_pixel=0;}
         sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
