@@ -37,10 +37,10 @@ void follow_the_line(){
     while(testClock<30){
         take_picture();
         double sum_of_pixels = 0;  
-        double specific_pixel= 1; 
+        double specific_pixel= 0; 
  
         for (int iteration=-160; iteration < 160; iteration++){
-            specific_pixel = get_pixel(iteration+160, 120, 3);
+            specific_pixel = 200//get_pixel(iteration+160, 120, 3);
             if(specific_pixel>127){specific_pixel=1;}
             else{specific_pixel=0;}
             sum_of_pixels = sum_of_pixels + specific_pixel;
