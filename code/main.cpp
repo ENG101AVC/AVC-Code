@@ -34,19 +34,21 @@ void network() {
 
 void follow_the_line(){
     int testClock = 0;
-    while(testClock<30){
+    while(testClock<1){
         take_picture();
         double sum_of_pixels = 0;  
         double specific_pixel= 0; 
  
         for (int iteration=-160; iteration < 160; iteration++){
-            specific_pixel = 200//get_pixel(iteration+160, 120, 3);
+            specific_pixel = get_pixel(iteration+160, 120, 3);
             if(specific_pixel>127){specific_pixel=1;}
-            else{specific_pixel=-1;}
+            else{specific_pixel=0;}
             sum_of_pixels = sum_of_pixels + specific_pixel;
+            printf("Specific Pixel:  %f\n", specific_pixel);
         }
     
         double proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
+        
         printf("The Proportional Signal is:  %f\n", proportional_signal);
     
         //Ideally sum_of_pixels = 0.
