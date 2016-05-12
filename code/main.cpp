@@ -42,7 +42,8 @@ void follow_the_line(){
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = get_pixel(iteration+160, 120, 3);
             if(specific_pixel>127){specific_pixel=1;}
-            else{specific_pixel=0;}
+            else if(specific_pixel<127){specific_pixel=0;}
+            
             sum_of_pixels = sum_of_pixels + specific_pixel;
             printf("Specific Pixel:  %f\n", specific_pixel);
         }
