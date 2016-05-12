@@ -37,15 +37,22 @@ void follow_the_line(){
     int sum_of_pixels; // 
     int specific_pixel; //maybe char
  
-    for (int iteration=-160; iteration <= 160; iteration++){
-        specific_pixel = get_pixel(120, iteration+160, 3);
+    for (int iteration=-160; iteration < 159; iteration++){
+        specific_pixel = get_pixel(120, iteration+161, 3);
         if(specific_pixel>127){specific_pixel=1;}
         else{specific_pixel=0;}
         sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
     }
+    int wheel_speed = 0;
+    if(sum_of_pixels*CONST_PROPORTIONAL > 255)
+    {
+        int wheel_speed = 255;   
+    }
+    }
+    
     //Ideally sum_of_pixels = 0.
-    set_motor(1, 127 + sum_of_pixels*CONST_PROPORTIONAL);
-    set_motor(2, 127 - sum_of_pixels*CONST_PROPORTIONAL);
+    set_motor(1, 127 + sum_of_pixels*CONST_PROPORTIONAL/160*127);
+    set_motor(2, 127 - sum_of_pixels*CONST_PROPORTIONAL/160*127);
 }
 
 //LEAVE AT BOTTOM OF CODE
