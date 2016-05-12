@@ -8,7 +8,7 @@ extern "C" int take_picture();
 extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
-extern "C" int display_picture();
+extern "C" int display_picture(int delay_sec, int delay_usec);
 
 const int CONST_PROPORTIONAL = 1;
 const int CONST_DIFFERENTIAL = 0;
