@@ -43,12 +43,6 @@ void follow_the_line(){
         else{specific_pixel=0;}
         sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
     }
-    int wheel_speed = 0;
-    if(sum_of_pixels*CONST_PROPORTIONAL > 255)
-    {
-        int wheel_speed = 255;   
-    }
-    }
     
     //Ideally sum_of_pixels = 0.
     set_motor(1, 127 + sum_of_pixels*CONST_PROPORTIONAL*127/160);
