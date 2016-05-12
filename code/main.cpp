@@ -35,14 +35,14 @@ void network() {
 void follow_the_line(){
     int testClock = 0;
     while(testClock<1){
-        take_picture();
+        int take_picture();
         double sum_of_pixels = 0;  
         char specific_pixel= 0; 
  
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = get_pixel(iteration+160, 120, 3);
-            if(specific_pixel>1){specific_pixel=1;}
-            else if(specific_pixel<1){specific_pixel=0;}
+            if(specific_pixel>127){specific_pixel=1;}
+            else{specific_pixel=0;}
             
             sum_of_pixels = sum_of_pixels + specific_pixel;
             printf("Specific Pixel:  %f\n", specific_pixel);
@@ -65,6 +65,7 @@ int main(){
     init(0);
     //network();
     follow_the_line();
+
 
     set_motor(1,0);
     set_motor(2,0);
