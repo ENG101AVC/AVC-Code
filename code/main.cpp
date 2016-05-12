@@ -42,7 +42,7 @@ void follow_the_line(){
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = 200//get_pixel(iteration+160, 120, 3);
             if(specific_pixel>127){specific_pixel=1;}
-            else{specific_pixel=0;}
+            else{specific_pixel=-1;}
             sum_of_pixels = sum_of_pixels + specific_pixel;
         }
     
