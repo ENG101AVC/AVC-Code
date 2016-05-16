@@ -36,19 +36,22 @@ void follow_the_line(){
     int testClock = 0;
     while(testClock<1){
         
-        display_picture(3, 0);
+        //display_picture(3, 0);
         take_picture();
+        display_picture(1,0);
         double sum_of_pixels = 0;  
-        char specific_pixel= 0; 
+        int specific_pixel= 0; 
  
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = get_pixel(iteration+160, 120, 3);
+            printf(" %d ",specific_pixel);
             if(specific_pixel>127){specific_pixel=1;}
             else{specific_pixel=0;}
             
             sum_of_pixels = sum_of_pixels + specific_pixel;
-            printf("Specific Pixel:  %f\n", specific_pixel);
+            //printf("Specific Pixel:  %d\n", specific_pixel);
         }
+        printf("\n");
     
         double proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
         
