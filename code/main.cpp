@@ -36,7 +36,7 @@ void follow_the_line(){
     int testClock = 0;
     while(testClock<1){
         
-        display_picture(0, 2000);
+        display_picture(3, 0);
         take_picture();
         double sum_of_pixels = 0;  
         char specific_pixel= 0; 
