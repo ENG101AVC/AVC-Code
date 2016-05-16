@@ -60,11 +60,17 @@ void follow_the_line(){
     }
 }
 
+void maze_navigation(){
+    //Try get both sensors to detect around the same number [Same distance apart/Center of Maze Walls]
+    //If one side is just larger the the other do turn script, if really large turn that direction.
+}
+
 //LEAVE AT BOTTOM OF CODE
 int main(){
     init(0);
     //network();
     follow_the_line();
+    //maze_navigation();
 
 
     set_motor(1,0);
