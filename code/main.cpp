@@ -47,7 +47,7 @@ void follow_the_line(){
             if(get_pixel(i, 120, 3) > max_val){
                 max_val = get_pixel(i, 120, 3);
             }
-            if(get_pixel(i, 120, 3)< min_value){
+            if(get_pixel(i, 120, 3)< min_val){
                 min_val = get_pixel(i, 120, 3);
             }
         }
