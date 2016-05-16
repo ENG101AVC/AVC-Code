@@ -85,10 +85,13 @@ void maze_navigation(){
 int main(){
     init(0);
     //network();
-    follow_the_line();
+    //follow_the_line();
     //maze_navigation();
 
 
+    set_motor(1,10);
+    set_motor(2,10);
+    Sleep(2,0);
     set_motor(1,0);
     set_motor(2,0);
     
