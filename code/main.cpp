@@ -36,20 +36,29 @@ void follow_the_line(){
     int testClock = 0;
     while(testClock<1){
         
-        //display_picture(3, 0);
+        
         take_picture();
-        display_picture(1,0);
         double sum_of_pixels = 0;  
         int specific_pixel= 0; 
- 
+        int max_val = 0;
+        int min_val = 255;
+        for(int i = 0; i < 320; i++){
+            if(get_pixel(i, 120, 3) > max_val){
+                max_val = get_pixel(i, 120, 3);
+            }
+            if(get_pixel(i, 120, 3)< min_value){
+                min_val = get_pixel(i, 120, 3);
+            }
+        }
+        printf("%d\n", max_val)
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = get_pixel(iteration+160, 120, 3);
             printf(" %d ",specific_pixel);
-            if(specific_pixel>127){specific_pixel=1;}
+            if(specific_pixel>(max_val-min_val)/2){specific_pixel=1;}
             else{specific_pixel=0;}
             
-            sum_of_pixels = sum_of_pixels + specific_pixel;
-            //printf("Specific Pixel:  %d\n", specific_pixel);
+            sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
+            printf("Specific Pixel:  %d\n", specific_pixel);
         }
         printf("\n");
     
