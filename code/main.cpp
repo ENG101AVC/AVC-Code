@@ -89,8 +89,8 @@ int main(){
     //maze_navigation();
 
 
-    set_motor(1,10);
-    set_motor(2,10);
+    set_motor(1,100);
+    set_motor(2,100);
     Sleep(2,0);
     set_motor(1,0);
     set_motor(2,0);
