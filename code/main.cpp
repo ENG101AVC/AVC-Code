@@ -78,47 +78,40 @@ void follow_the_line(){
 
 void beta_follow_the_line(){
     int testClock = 0;
-            int max_val = 0;
-        int min_val = 255;
-int current_error = 0;
-double kp = 0.5;
-int proportional_signal = 0;
+    int max_val = 0;
+    int min_val = 255;
+    int current_error = 0;
+    double kp = 0.5;
+    int proportional_signal = 0;
+    
     while(testClock<100){
-        
         take_picture();
         int error = 0;
         for (int i=1; i<320; i++){
-            
             error = get_pixel(i, 120, 3);
             if(error>max_val){max_val = error;}
             if(error<min_val){min_val = error;}
         }
         printf("Cam Test");
         
-
-
-
-
-
-
         for (int i=1; i<320; i++){
-            
             error = get_pixel(i, 120, 3);
             if (error > (max_val + min_val)/2) {
                 error = 1;
-            } else { error = 0; }
+            } 
+            else { error = 0; }
             printf("%d: %d", i, error);
-        current_error = current_error + (i-160)*error;
-        printf("Inside For Loop");
+            current_error = current_error + (i-160)*error;
+            printf("Inside For Loop");
         }
         printf("Terminated for Loop");
-    proportional_signal = current_error*kp;
+        proportional_signal = current_error*kp;
         printf("Proportional Signal");
-    printf("Proportional signal is: %d", proportional_signal );
+        printf("Proportional signal is: %d", proportional_signal );
 
-    set_motor(1, (proportional_signal/(160*1*kp))*255);
-    set_motor(2, (proportional_signal/(160*-1*kp))*255);
-    testClock++;
+        set_motor(1, (proportional_signal/(160*1*kp))*255);
+        set_motor(2, (proportional_signal/(160*-1*kp))*255);
+        testClock++;
     }
 }
 
