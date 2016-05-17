@@ -87,13 +87,13 @@ void beta_follow_the_line(){
 
         for (int i=0; i<320; i++){
 
-            error = (i-160)*get_pixel(i, 120, 3);
+            int error = (i-160)*get_pixel(i, 120, 3);
 
             current_error = current_error + error;
 
         }
 
-    proportional_signal = error*kp;
+    proportional_signal = current_error*kp;
 
     printf("Proportional signal is: %d", proportional_signal );
 
