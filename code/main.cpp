@@ -10,7 +10,7 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const double CONST_PROPORTIONAL = 4;
+const double CONST_PROPORTIONAL = 10;
 const int CONST_DIFFERENTIAL = 0;
 const int CONST_INTEGRAL = 0;
 
