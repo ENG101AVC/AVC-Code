@@ -76,6 +76,33 @@ void follow_the_line(){
     }
 }
 
+void beta_follow_the_line(){
+    int testClock = 0;
+    while(testClock<100){
+        int current_error = 0;
+
+        int kp = 0.5;
+
+        int proportional_signal;
+
+        for (i=0, i<320, i++){
+
+            error = (i-160)*get_pixel(i, 120, 3);
+
+            current_error = current_error + error;
+
+        }
+
+    proportional_signal = error*kp;
+
+    printf("Proportional signal is: %d", proportional_signal );
+
+    set_motor(1, (proportional_signal/(160*1*kp))*255);
+    set_motor(2, (proportional_signal)/(160*-1*kp))*255);
+    testClock++;
+    }
+}
+
 void maze_navigation(){
     //Try get both sensors to detect around the same number [Same distance apart/Center of Maze Walls]
     //If one side is just larger the the other do turn script, if really large turn that direction.
@@ -85,7 +112,8 @@ void maze_navigation(){
 int main(){
     init(0);
     //network();
-    follow_the_line();
+    //follow_the_line();
+    beta_follow_the_line();
     //maze_navigation();
 
 
