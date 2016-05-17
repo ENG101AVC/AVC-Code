@@ -85,7 +85,7 @@ void maze_navigation(){
 int main(){
     init(0);
     //network();
-    //follow_the_line();
+    follow_the_line();
     //maze_navigation();
 
 
