@@ -14,14 +14,14 @@ const double CONST_PROPORTIONAL = 1;
 const int CONST_DIFFERENTIAL = 0;
 const int CONST_INTEGRAL = 0;
 
-int SUM_PREV; //FOR WHEN WE USE DIFFERENTIATE
-int SUM_TIME; //FOR WHEN WE DIFFERENTIATE
+int prev_sum; //FOR WHEN WE USE DIFFERENTIATE
+int prev_time; //FOR WHEN WE DIFFERENTIATE
 
 //LEFT wheel is motor ONE
 //RIGHT wheel is motor TWO
 
 void network() {
-    connect_to_server("130.195.6.196", 1024); //TODO: fix Server IP
+   connect_to_server("130.195.6.196", 1024); //TODO: fix Server IP
    //sends a message to the connected server
    send_to_server("Please");
 
@@ -33,105 +33,109 @@ void network() {
 }
 
 void follow_the_line(){
-    int testClock = 0;
-    int max_val = 0;
-    int min_val = 255;
-    
-     for(int i = 1; i < 320; i++){
-            if(get_pixel(i, 120, 3) > max_val){
-                max_val = get_pixel(i, 120, 3);
-            }
-            if(get_pixel(i, 120, 3)< min_val){
-                min_val = get_pixel(i, 120, 3);
-            }
-        }
-    
-    while(testClock<200){
-        
-        take_picture();
-        double sum_of_pixels = 0;  
-        int specific_pixel= 0; 
-        
-       
-       
-        
-        for (int iteration=-160; iteration < 160; iteration++){
-            specific_pixel = get_pixel(iteration+161, 120, 3);
-            if(specific_pixel>(max_val-min_val)/1.5+min_val){specific_pixel=1;}
-            else{specific_pixel=0;}
-            
-            sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
-        }
-        printf("\n");
-    
-        double proportional_signal = sum_of_pixels;
-        
-        printf("The Proportional Signal is:  %f\n", proportional_signal);
-    
-        //Ideally sum_of_pixels = 0.
-        set_motor(1, 50+(proportional_signal/(160*-1*CONST_PROPORTIONAL)));
-        set_motor(2, 50+(proportional_signal/(160*1*CONST_PROPORTIONAL)));
-     
-        testClock++;
-    }
+   int testClock = 0;
+   int max_val = 0;
+   int min_val = 255;
+   int proportional_signal = 0;
+   double derivative_signal = 0;
+   double sum_of_pixels = 0;
+   int specific_pixel= 0;
+   prev_time = (int)time(NULL);
+
+
+   while(testClock<200){
+
+      take_picture();
+      for(int i = 1; i < 320; i++){
+         if(get_pixel(i, 120, 3) > max_val){
+            max_val = get_pixel(i, 120, 3);
+         }
+         if(get_pixel(i, 120, 3)< min_val){
+            min_val = get_pixel(i, 120, 3);
+         }
+      }
+
+      for (int iteration=-160; iteration < 160; iteration++){
+         specific_pixel = get_pixel(iteration+161, 120, 3);
+         if(specific_pixel>(max_val-min_val)/1.5+min_val){specific_pixel=1;}
+         else{specific_pixel=0;}
+
+         sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
+      }
+      printf("\n");
+
+      proportional_signal = sum_of_pixels * CONST_PROPORTIONAL;
+      derivative_signal = CONST_DIFFERENTIAL * (double)(sum_of_pixels - prev_sum)/((int)time(NULL)-prev_time);
+
+      prev_sum = sum_of_pixels;
+      prev_time = (int)time(NULL);
+
+      printf("The Proportional Signal is:  %f\n", proportional_signal);
+
+      //Ideally sum_of_pixels = 0.
+      set_motor(1, 50+(proportional_signal/(160*-1*CONST_PROPORTIONAL)));
+      set_motor(2, 50+(proportional_signal/(160*1*CONST_PROPORTIONAL)));
+
+      testClock++;
+   }
 }
 
 void beta_follow_the_line(){
-    int testClock = 0;
-    int max_val = 0;
-    int min_val = 255;
-    int current_error = 0;
-    double kp = 0.5;
-    int proportional_signal = 0;
-    
-    while(testClock<100){
-        take_picture();
-        int error = 0;
-        for (int i=1; i<320; i++){
-            error = get_pixel(i, 120, 3);
-            if(error>max_val){max_val = error;}
-            if(error<min_val){min_val = error;}
-        }
-        printf("Cam Test");
-        
-        for (int i=1; i<320; i++){
-            error = get_pixel(i, 120, 3);
-            if (error > (max_val + min_val)/2) {
-                error = 1;
-            } 
-            else { error = 0; }
-            printf("%d: %d", i, error);
-            current_error = current_error + (i-160)*error;
-            printf("Inside For Loop");
-        }
-        printf("Terminated for Loop");
-        proportional_signal = current_error*kp;
-        printf("Proportional Signal");
-        printf("Proportional signal is: %d", proportional_signal );
+   int testClock = 0;
+   int max_val = 0;
+   int min_val = 255;
+   int current_error = 0;
+   double kp = 0.5;
+   int proportional_signal = 0;
+   while(testClock<100){
+      take_picture();
+      int error = 0;
+      for (int i=1; i<320; i++){
+         error = get_pixel(i, 120, 3);
+         if(error>max_val){max_val = error;}
+         else if(error<min_val){min_val = error;}
+      }
 
-        set_motor(1, (proportional_signal/(160*1*kp))*255);
-        set_motor(2, (proportional_signal/(160*-1*kp))*255);
-        testClock++;
-    }
+      for (int i=1; i<320; i++){
+         //get the 'whiteness' of a pixel
+         error = get_pixel(i, 120, 3);
+         //if the error is greater than the middle of the range
+         if (error >= (max_val + min_val)/2) {
+            error = 1;
+         }
+         else { error = 0; }
+         printf("%d: %d\n", i, error);
+         current_error = current_error + (i-160)*error;
+         /* printf("Inside For Loop"); */
+      }
+      /* printf("Terminated for Loop"); */
+      proportional_signal = current_error*kp;
+      /* printf("Proportional Signal"); */
+      printf("Proportional signal is: %d\n", proportional_signal );
+
+      set_motor(1, (proportional_signal/(160*1*kp))*255);
+      set_motor(2, (proportional_signal/(160*-1*kp))*255);
+      /* testClock++; */
+   }
 }
 
 void maze_navigation(){
-    //Try get both sensors to detect around the same number [Same distance apart/Center of Maze Walls]
-    //If one side is just larger the the other do turn script, if really large turn that direction.
+   //Try get both sensors to detect around the same number [Same distance apart/Center of Maze Walls]
+   //If one side is just larger the the other do turn script, if really large turn that direction.
 }
 
-//LEAVE AT BOTTOM OF CODE
 int main(){
-    init(0);
-    //network();
-    //follow_the_line();
-    beta_follow_the_line();
-    //maze_navigation();
+   printf("%d", (int)time(NULL));
+   init(0);
+   //network();
+   //follow_the_line();
+   beta_follow_the_line();
+   //maze_navigation();
 
 
-    
-    set_motor(1,0);
-    set_motor(2,0);
-    
-    return 0;
+   //Turn off motors
+   set_motor(1,0);
+   set_motor(2,0);
+
+   return 0;
 }
