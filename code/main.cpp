@@ -92,7 +92,7 @@ void beta_follow_the_line(){
         
         int current_error = 0;
 
-        int kp = 0.5;
+        double kp = 0.5;
 
         int proportional_signal = 0;
         int max_val = 0;
@@ -104,7 +104,8 @@ void beta_follow_the_line(){
             if (error > (max_val + min_val)/2) {
                 error = 1;
             } else { error = 0; }
-            current_error = current_error + (i-160)*error;
+            printf("%d: %d", i, error);
+        current_error = current_error + (i-160)*error;
         printf("Inside For Loop");
         }
         printf("Terminated for Loop");
