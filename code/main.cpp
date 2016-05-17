@@ -10,7 +10,7 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const double CONST_PROPORTIONAL = 8;
+const double CONST_PROPORTIONAL = 4;
 const int CONST_DIFFERENTIAL = 0;
 const int CONST_INTEGRAL = 0;
 
@@ -37,13 +37,7 @@ void follow_the_line(){
     int max_val = 0;
     int min_val = 255;
     
-    while(testClock<20){
-        
-        take_picture();
-        double sum_of_pixels = 0;  
-        int specific_pixel= 0; 
-        
-        for(int i = 0; i < 320; i++){
+     for(int i = 0; i < 320; i++){
             if(get_pixel(i, 120, 3) > max_val){
                 max_val = get_pixel(i, 120, 3);
             }
@@ -51,7 +45,15 @@ void follow_the_line(){
                 min_val = get_pixel(i, 120, 3);
             }
         }
-        printf("%d\n", max_val);
+    
+    while(testClock<20){
+        
+        take_picture();
+        double sum_of_pixels = 0;  
+        int specific_pixel= 0; 
+        
+       
+       
         
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = get_pixel(iteration+160, 120, 3);
