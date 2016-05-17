@@ -57,12 +57,10 @@ void follow_the_line(){
         
         for (int iteration=-160; iteration < 160; iteration++){
             specific_pixel = get_pixel(iteration+160, 120, 3);
-            printf(" %d ",specific_pixel);
             if(specific_pixel>(max_val-min_val)/1.5+min_val){specific_pixel=1;}
             else{specific_pixel=0;}
             
             sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
-            printf("Specific Pixel:  %d\n", specific_pixel);
         }
         printf("\n");
     
