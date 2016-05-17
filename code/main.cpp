@@ -80,7 +80,7 @@ void beta_follow_the_line(){
     int testClock = 0;
     while(testClock<100){
         take_picture();
-        println("Cam Test");
+        printf("Cam Test");
         
         int current_error = 0;
 
@@ -93,11 +93,11 @@ void beta_follow_the_line(){
             int error = (i-160)*get_pixel(i, 120, 3);
 
             current_error = current_error + error;
-        println("Inside For Loop");
+        printf("Inside For Loop");
         }
-        println("Terminated for Loop");
+        printf("Terminated for Loop");
     proportional_signal = current_error*kp;
-        println("Proportional Signal");
+        printf("Proportional Signal");
     printf("Proportional signal is: %d", proportional_signal );
 
     set_motor(1, (proportional_signal/(160*1*kp))*255);
