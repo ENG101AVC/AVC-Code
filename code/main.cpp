@@ -85,7 +85,7 @@ void beta_follow_the_line(){
 
         int proportional_signal;
 
-        for (i=0, i<320, i++){
+        for (int i=0; i<320; i++){
 
             error = (i-160)*get_pixel(i, 120, 3);
 
