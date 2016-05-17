@@ -64,7 +64,7 @@ void follow_the_line(){
         }
         printf("\n");
     
-        double proportional_signal = sum_of_pixels*CONST_PROPORTIONAL;
+        double proportional_signal = sum_of_pixels;
         
         printf("The Proportional Signal is:  %f\n", proportional_signal);
     
