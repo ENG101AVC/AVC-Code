@@ -37,7 +37,7 @@ void follow_the_line(){
     int max_val = 0;
     int min_val = 255;
     
-     for(int i = 0; i < 320; i++){
+     for(int i = 1; i < 320; i++){
             if(get_pixel(i, 120, 3) > max_val){
                 max_val = get_pixel(i, 120, 3);
             }
@@ -79,7 +79,15 @@ void follow_the_line(){
 void beta_follow_the_line(){
     int testClock = 0;
     while(testClock<100){
+        
         take_picture();
+        int error = 0;
+        for (int i=1; i<320; i++){
+            
+            error = get_pixel(i, 120, 3);
+            if(error>max_val){max_val = error;}
+            if(error<min_val){min_val = error;}
+        }
         printf("Cam Test");
         
         int current_error = 0;
@@ -87,12 +95,16 @@ void beta_follow_the_line(){
         int kp = 0.5;
 
         int proportional_signal = 0;
+        int max_val = 0;
+        int min_val = 255;
 
-        for (int i=0; i<320; i++){
-
-            int error = (i-160)*get_pixel(i, 120, 3);
-
-            current_error = current_error + error;
+        for (int i=1; i<320; i++){
+            
+            error = get_pixel(i, 120, 3);
+            if (error > (max_val + min_val)/2) {
+                error = 1;
+            } else { error = 0; }
+            current_error = current_error + (i-160)*error;
         printf("Inside For Loop");
         }
         printf("Terminated for Loop");
