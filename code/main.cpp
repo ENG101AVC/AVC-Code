@@ -78,6 +78,11 @@ void follow_the_line(){
 
 void beta_follow_the_line(){
     int testClock = 0;
+            int max_val = 0;
+        int min_val = 255;
+int current_error = 0;
+double kp = 0.5;
+int proportional_signal = 0;
     while(testClock<100){
         
         take_picture();
@@ -90,13 +95,11 @@ void beta_follow_the_line(){
         }
         printf("Cam Test");
         
-        int current_error = 0;
 
-        double kp = 0.5;
 
-        int proportional_signal = 0;
-        int max_val = 0;
-        int min_val = 255;
+
+
+
 
         for (int i=1; i<320; i++){
             
