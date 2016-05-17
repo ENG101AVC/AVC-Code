@@ -79,6 +79,8 @@ void follow_the_line(){
 void beta_follow_the_line(){
     int testClock = 0;
     while(testClock<100){
+        take_picture();
+        
         int current_error = 0;
 
         int kp = 0.5;
