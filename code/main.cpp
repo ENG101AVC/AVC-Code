@@ -56,7 +56,7 @@ void follow_the_line(){
        
         
         for (int iteration=-160; iteration < 160; iteration++){
-            specific_pixel = get_pixel(iteration+160, 120, 3);
+            specific_pixel = get_pixel(iteration+161, 120, 3);
             if(specific_pixel>(max_val-min_val)/1.5+min_val){specific_pixel=1;}
             else{specific_pixel=0;}
             
