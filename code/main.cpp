@@ -98,7 +98,7 @@ void beta_follow_the_line(){
     printf("Proportional signal is: %d", proportional_signal );
 
     set_motor(1, (proportional_signal/(160*1*kp))*255);
-    set_motor(2, (proportional_signal)/(160*-1*kp))*255);
+    set_motor(2, (proportional_signal/(160*-1*kp))*255);
     testClock++;
     }
 }
