@@ -42,10 +42,10 @@ void follow_the_line(){
    int specific_pixel= 0;
    prev_time = (int)time(NULL);
 
-
    while(testClock<200){
 
       take_picture();
+      //GET max and min values to use
       for(int i = 1; i < 320; i++){
          if(get_pixel(i, 120, 3) > max_val){
             max_val = get_pixel(i, 120, 3);
@@ -55,12 +55,12 @@ void follow_the_line(){
          }
       }
 
-      for (int iteration=-160; iteration < 160; iteration++){
-         specific_pixel = get_pixel(iteration+161, 120, 3);
+      for (int i=-160; i < 160; i++){
+         specific_pixel = get_pixel(i+161, 120, 3);
          if(specific_pixel>(max_val-min_val)/1.5+min_val){specific_pixel=1;}
          else{specific_pixel=0;}
 
-         sum_of_pixels = sum_of_pixels + specific_pixel*iteration;
+         sum_of_pixels = sum_of_pixels + specific_pixel*i;
       }
       printf("\n");
 
@@ -71,10 +71,11 @@ void follow_the_line(){
       prev_time = (int)time(NULL);
 
       printf("The Proportional Signal is:  %f\n", proportional_signal);
+      printf("The Derivative Signal is: %f\n\n", derivative_signal);
 
       //Ideally sum_of_pixels = 0.
-      set_motor(1, 50+(proportional_signal/(160*-1*CONST_PROPORTIONAL)));
-      set_motor(2, 50+(proportional_signal/(160*1*CONST_PROPORTIONAL)));
+      set_motor(1, 50+(proportional_signal/160*-1*CONST_PROPORTIONAL));
+      set_motor(2, 50+(proportional_signal/160*1*CONST_PROPORTIONAL));
 
       testClock++;
    }
