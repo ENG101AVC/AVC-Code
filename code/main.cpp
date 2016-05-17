@@ -46,7 +46,7 @@ void follow_the_line(){
             }
         }
     
-    while(testClock<20){
+    while(testClock<200){
         
         take_picture();
         double sum_of_pixels = 0;  
