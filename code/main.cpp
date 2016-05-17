@@ -73,7 +73,7 @@ void follow_the_line(){
         //Ideally sum_of_pixels = 0.
         set_motor(1, 50+(proportional_signal/(160*-1*CONST_PROPORTIONAL)));
         set_motor(2, 50+(proportional_signal/(160*1*CONST_PROPORTIONAL)));
-        Sleep(0, 200000);
+     
         testClock++;
     }
 }
