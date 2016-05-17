@@ -10,7 +10,7 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const double CONST_PROPORTIONAL = 6;
+const double CONST_PROPORTIONAL = 4;
 const int CONST_DIFFERENTIAL = 0;
 const int CONST_INTEGRAL = 0;
 
@@ -69,8 +69,8 @@ void follow_the_line(){
         printf("The Proportional Signal is:  %f\n", proportional_signal);
     
         //Ideally sum_of_pixels = 0.
-        set_motor(1, 2+(proportional_signal/(160*-1*CONST_PROPORTIONAL)));
-        set_motor(2, 2+(proportional_signal/(160*1*CONST_PROPORTIONAL)));
+        set_motor(1, 80+(proportional_signal/(160*-1*CONST_PROPORTIONAL)));
+        set_motor(2, 80+(proportional_signal/(160*1*CONST_PROPORTIONAL)));
         Sleep(0, 200000);
         testClock++;
     }
