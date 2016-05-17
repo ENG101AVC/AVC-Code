@@ -85,7 +85,7 @@ void beta_follow_the_line(){
 
         int kp = 0.5;
 
-        int proportional_signal;
+        int proportional_signal = 0;
 
         for (int i=0; i<320; i++){
 
