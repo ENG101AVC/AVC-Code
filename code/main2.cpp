@@ -88,7 +88,7 @@ void follow_the_line(){
 	int proportional_signal_previous;
 	int noLine_iteration = 0;
 
-	while(testClock < 600){
+	while(testClock < 1500){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
