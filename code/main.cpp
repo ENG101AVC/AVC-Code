@@ -164,7 +164,7 @@ void beta_follow_the_line(){
     }
     return;
 }
-
+/*
 void follow_line_maze() {
     int max_val = 0;
     int min_val = 255;
@@ -211,7 +211,7 @@ void follow_line_maze() {
 
     return;
 }
-
+*/
 void maze_navigation(){
     //Try get both sensors to detect around the same number [Same distance apart/Center of Maze Walls]
     //If one side is just larger the the other do turn script, if really large turn that direction.
