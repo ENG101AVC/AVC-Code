@@ -31,12 +31,12 @@ void navigate_maze(){
 		
 		if(front < /*value*/)
 		{
-			if (left > 450)
+			if (left > 250)
 			{
 				set_motor(1, -45);
 				set_motor(2, 45);	
 			}
-			else if(right > 450){
+			else if(right > 350){
 				set_motor(1, 45);
 				set_motor(2, -45);	
 			}
