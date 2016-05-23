@@ -85,6 +85,7 @@ void follow_the_line(){
 	//Define local variables
 	int testClock = 0;						// For testing the RPi.  Can terminate movement.
 	int threshold = determine_average();	//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
+	int proportional_signal_previous;
 
 	while(testClock < 300){
 
