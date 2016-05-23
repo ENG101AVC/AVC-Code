@@ -46,6 +46,8 @@ void navigate_maze(){
 			set_motor(2, 80);
 		}
 		
+		Sleep(0,500000);
+		
 		testClock++;
 	}
 	
