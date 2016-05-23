@@ -14,8 +14,8 @@ extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
 const double PROPORTIONAL = 500;	// Proportional Constant
-const double DIFFERENTIAL = 0;	// Differential Constant
-const double INTEGRAL = 0;		// Integral Constant
+const double DIFFERENTIAL = 0;		// Differential Constant
+const double INTEGRAL = 0;			// Integral Constant
 
 
 // This method determines the average white/black levels.
@@ -25,7 +25,7 @@ int determine_average(){
 	int min = 255;
 	int theshold;
 
-	take_picture();					// Takes initial picture.
+	take_picture();							// Takes initial picture.
 	for(int i = 0; i<320; i++){
 
 		if(get_pixel(i, 120, 3)>max){		// Establishes Max.
@@ -67,13 +67,13 @@ int average_error(int i){
 // This is the network() method.  Opens the gate.
 
 void network(){
-	char message[24];				// Assigns memory to password.
+	char message[24];							// Assigns memory to password.
 
 	connect_to_server("130.195.6.196", 1204);	// Connects to Gate.
 	send_to_server("Please");					// Requests permission.
 
-	receive_from_server(message);	// Assigns the password to 'message'.
-	send_to_server(message);		// Sends password to server
+	receive_from_server(message);				// Assigns the password to 'message'.
+	send_to_server(message);					// Sends password to server
 }
 
 
@@ -83,8 +83,8 @@ void network(){
 void follow_the_line(){
 
 	//Define local variables
-	int testClock = 0;						// For testing the RPi.  Can terminate movement.
-	int threshold = determine_average();	//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
+	int testClock = 0;							// For testing the RPi.  Can terminate movement.
+	int threshold = determine_average();		//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 	int proportional_signal_previous;
 
 	
@@ -100,13 +100,13 @@ void follow_the_line(){
 		for(int i=0; i<320; i++){
 			int error = average_error(i);
 
-			if(error >= threshold){			// If RPi sees 'white'
-				error = 1;				// Converts to binary represenation
-				seeLine = true;			// The Line can be seen
+			if(error >= threshold){				// If RPi sees 'white'
+				error = 1;						// Converts to binary represenation
+				seeLine = true;					// The Line can be seen
 				num_of_white++;
 			}
-			else{							// If RPi sees 'black'
-				error = 0;				// Converts to binary representation
+			else{								// If RPi sees 'black'
+				error = 0;						// Converts to binary representation
 			}
 
 			current_error = current_error + error*(i-160);
@@ -121,10 +121,19 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(seeLine){
+		if(seeLine && num_of_white < 70){
 			set_motor(1, 40+proportional_signal);
 			set_motor(2, 40-proportional_signal);
 			proportional_signal_previous = proportional_signal;
+		}
+		else if(num_of_white<320 && num_of_white>=70){
+			set_motor(1, 40);
+			set_motor(2, 40);
+		}
+		else if(num_of_white >= 320){
+			set_motor(1, 50);
+			set_motor(2, 0);
+			Sleep(1,0);
 		}
 		else{
 			set_motor(1, 50+proportional_signal_previous*6);
@@ -155,13 +164,11 @@ int main(){
 	
 	init(0);			// Initialise Hardware
 
-//	network();			// Open Gate
+	//network();			// Open Gate
 
 	follow_the_line();	// Begin Following Line
 
-	//follow_line_maze();	// Follow the Junction Line
-
-	//maze_navigation();	// Navigate the maze.
+	maze_navigation();	// Navigate the maze.
 
 
 	//Emergency Stop
