@@ -89,7 +89,7 @@ void follow_the_line(){
 
 	
 
-	while(testClock < 2000){
+	while(testClock < 1500){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
@@ -121,19 +121,10 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(seeLine && num_of_white < 170){
+		if(seeLine){
 			set_motor(1, 40+proportional_signal);
 			set_motor(2, 40-proportional_signal);
 			proportional_signal_previous = proportional_signal;
-		}
-		else if(num_of_white<300 && num_of_white>=170){
-			set_motor(1, 40);
-			set_motor(2, 40);
-		}
-		else if(num_of_white >= 300){
-			set_motor(1, 50);
-			set_motor(2, 0);
-			Sleep(1,0);
 		}
 		else{
 			set_motor(1, 50+proportional_signal_previous*6);
