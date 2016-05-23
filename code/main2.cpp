@@ -149,7 +149,7 @@ int main(){
 
 	//network();			// Open Gate
 
-	follow_the_line();	// Begin Following Line
+//	follow_the_line();	// Begin Following Line
 
 	//follow_line_maze();	// Follow the Junction Line
 
