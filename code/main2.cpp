@@ -122,8 +122,8 @@ void follow_the_line(){
 			proportional_signal_previous = proportional_signal;
 		}
 		else{
-			set_motor(1, 50+proportional_signal_previous*4);
-			set_motor(2, 50-proportional_signal_previous*4);
+			set_motor(1, 50+proportional_signal_previous*5);
+			set_motor(2, 50-proportional_signal_previous*5);
 		}
 
 	testClock++;
