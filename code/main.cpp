@@ -157,7 +157,7 @@ void beta_follow_the_line(){
             Sleep(0,250000);
         }
         Sleep(0,1000);
-        if(whiteness > 100){
+        if(whiteness > 300){
             return; 
             
         }
