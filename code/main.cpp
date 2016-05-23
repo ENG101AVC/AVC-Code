@@ -162,7 +162,7 @@ void beta_follow_the_line(){
             Sleep(0,250000);
         }
         prev_time = (int)time(NULL);
-        if(whiteness > 300){
+        if(whiteness > 200){
             return; 
             
         }
