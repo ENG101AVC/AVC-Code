@@ -226,7 +226,7 @@ int main(){
     init(0);
     //network();
     //follow_the_line();
-    beta_follow_the_line();
+    //beta_follow_the_line();
     //follow_line_maze();
     //maze_navigation();
 
