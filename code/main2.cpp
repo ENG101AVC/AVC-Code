@@ -157,7 +157,7 @@ int main(){
 
 	//network();			// Open Gate
 
-//	follow_the_line();	// Begin Following Line
+	follow_the_line();	// Begin Following Line
 
 //	maze_navigation();	// Navigate the maze.
 
