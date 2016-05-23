@@ -123,14 +123,10 @@ void follow_the_line(){
 			proportional_signal_previous = proportional_signal;
 			noLine_iteration = 0;
 		}
-		else if(noLine_iteration < 5){
+		else{
 			set_motor(1, 50+proportional_signal_previous*6);
 			set_motor(2, 50-proportional_signal_previous*6);
 			noLine_iteration++;
-		}
-		else{
-			set_motor(1, -60);
-			set_motor(2, -60);
 		}
 
 	testClock++;
