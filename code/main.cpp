@@ -223,7 +223,7 @@ int main(){
     //network();
     //follow_the_line();
     beta_follow_the_line();
-    follow_line_maze();
+    //follow_line_maze();
     //maze_navigation();
 
     //stop
