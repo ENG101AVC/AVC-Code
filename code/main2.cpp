@@ -89,7 +89,7 @@ void follow_the_line(){
 
 	
 
-	while(testClock < 1500){
+	while(testClock < 2000){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
