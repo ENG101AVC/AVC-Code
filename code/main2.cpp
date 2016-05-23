@@ -13,7 +13,7 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const double PROPORTIONAL = 1/300;	// Proportional Constant
+const double PROPORTIONAL = 300;	// Proportional Constant
 const double DIFFERENTIAL = 0;	// Differential Constant
 const double INTEGRAL = 0;		// Integral Constant
 
@@ -109,7 +109,7 @@ void follow_the_line(){
 
 		//if(whiteness > 300){return;}	// Moves to White Line Maze
 
-		int proportional_signal = (int) (current_error*PROPORTIONAL);	//Sets proportional signal
+		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
 
 		// Print checks:
 		printf("Current Error: %d\n", current_error);
