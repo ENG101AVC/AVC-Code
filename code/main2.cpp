@@ -130,10 +130,10 @@ void follow_the_line(){
 			set_motor(1, 40);
 			set_motor(2, 40);
 		}
-		else if(seeLine && num_of_white >= 300){								// Turning leftward at a junction.
+		else if(seeLine && num_of_white >= 260){								// Turning leftward at a junction.
 			set_motor(1, 0);
 			set_motor(2, 0);
-			Sleep(1, 0);
+			Sleep(5, 0);
 
 			set_motor(1, 40);
 			set_motor(2, 0);
