@@ -11,7 +11,7 @@ extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
 const double CONST_PROPORTIONAL = 1;
-const int CONST_DIFFERENTIAL = 0;
+const int CONST_DIFFERENTIAL = 0.5;
 const int CONST_INTEGRAL = 0;
 
 int prev_sum; //FOR WHEN WE USE DIFFERENTIATE
@@ -97,6 +97,7 @@ void beta_follow_the_line(){
     int min_val = 255;
     int current_error = 0;
     int previous_error = 0;
+    int prev_time = (int)time(NULL);
     bool seeLine = false;
     int proportional_signal_previous;
 
@@ -104,8 +105,10 @@ void beta_follow_the_line(){
     double kd = 0.5;
 
     int proportional_signal = 0;
-    int derivative_signal = 0;
-
+    double derivative_signal = 0;
+    double sig = 0;
+    
+    
     take_picture();
     int error = 0;
     for (int i=1; i<320; i++){
@@ -140,14 +143,15 @@ void beta_follow_the_line(){
             /* printf("Inside For Loop"); */
         }
         /* printf("Terminated for Loop"); */
-
+        derivative_signal = (double)(current_error - previous_error)/((int)time(NULL) - prev_time)
         proportional_signal = current_error/kp;
-
+        sig = derivative_signal + proportional_signal;
         printf("Current Error is: %d\n", current_error);
         printf("Proportional signal is: %d\n", proportional_signal );
+        printf("signal is: %f\n", sig)
         if(seeLine){
-            set_motor(1, 50+proportional_signal);
-            set_motor(2, 50-proportional_signal);
+            set_motor(1, 50+sig);
+            set_motor(2, 50-sig);
             previous_error = current_error;
             proportional_signal_previous = proportional_signal;
         }
@@ -156,7 +160,7 @@ void beta_follow_the_line(){
             set_motor(2, 50-proportional_signal_previous*2);
             Sleep(0,250000);
         }
-        Sleep(0,1000);
+        prev_time = (int)time(NULL);
         if(whiteness > 300){
             //return; 
             
