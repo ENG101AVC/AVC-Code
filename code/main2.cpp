@@ -38,7 +38,7 @@ int determine_average(){
 		}
 	}
 
-	threshold = (max+min)/2;
+	int threshold = (max+min)/2;
 	return threshold;
 }
 
