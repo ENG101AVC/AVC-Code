@@ -86,12 +86,14 @@ void follow_the_line(){
 	int testClock = 0;						// For testing the RPi.  Can terminate movement.
 	int threshold = determine_average();	//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 	int proportional_signal_previous;
-	int noLine_iteration = 0;
+
+	
 
 	while(testClock < 1500){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
+		int num_of_white = 0;
 
 		take_picture();
 
@@ -101,6 +103,7 @@ void follow_the_line(){
 			if(error >= threshold){			// If RPi sees 'white'
 				error = 1;				// Converts to binary represenation
 				seeLine = true;			// The Line can be seen
+				num_of_white++;
 			}
 			else{							// If RPi sees 'black'
 				error = 0;				// Converts to binary representation
@@ -116,6 +119,7 @@ void follow_the_line(){
 		// Print checks:
 		printf("Current Error: %d\n", current_error);
 		printf("Proportional Signal: %d\n", proportional_signal);
+		printf("Number of White Pixels: %d\n", num_of_white);
 
 		if(seeLine){
 			set_motor(1, 40+proportional_signal);
