@@ -121,10 +121,23 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(seeLine){
+		if(seeLine && num_of_white < 170){							// Following a curved line
 			set_motor(1, 40+proportional_signal);
 			set_motor(2, 40-proportional_signal);
 			proportional_signal_previous = proportional_signal;
+		}
+		else if(seeLine && num_of_white<300 && num_of_white>=170){				// Moving straight through a tight corner.
+			set_motor(1, 40);
+			set_motor(2, 40);
+		}
+		else if(seeLine && num_of_white >= 260){								// Turning leftward at a junction.
+			set_motor(1, 0);
+			set_motor(2, 0);
+			Sleep(5, 0);
+
+			set_motor(1, 40);
+			set_motor(2, 0);
+			Sleep(1,0);
 		}
 		else{
 			set_motor(1, 50+proportional_signal_previous*6);
@@ -155,7 +168,7 @@ int main(){
 	
 	init(0);			// Initialise Hardware
 
-	network();			// Open Gate
+	//network();			// Open Gate
 
 	follow_the_line();	// Begin Following Line
 
