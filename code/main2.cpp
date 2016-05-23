@@ -13,7 +13,7 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const double PROPORTIONAL = 400;	// Proportional Constant
+const double PROPORTIONAL = 500;	// Proportional Constant
 const double DIFFERENTIAL = 0;	// Differential Constant
 const double INTEGRAL = 0;		// Integral Constant
 
