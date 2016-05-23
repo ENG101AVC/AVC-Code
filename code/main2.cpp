@@ -118,8 +118,8 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 
 		if(seeLine){
-			set_motor(1, 50+proportional_signal);
-			set_motor(2, 50-proportional_signal);
+			set_motor(1, 40+proportional_signal);
+			set_motor(2, 40-proportional_signal);
 			proportional_signal_previous = proportional_signal;
 			noLine_iteration = 0;
 		}
