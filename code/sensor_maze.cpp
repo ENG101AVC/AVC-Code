@@ -24,7 +24,27 @@ void navigate_maze(){
 		right = read_analog(1);
 		front = read_analog(2);
 		
-		//do something with data
+		if(front < 80)
+		{
+			if (left > 450)
+			{
+				set_motor(1, -45);
+				set_motor(2, 45);	
+			}
+			else if(right > 450){
+				set_motor(1, 45);
+				set_motor(2, -45);	
+			}
+			else{
+				set_motor(1, -80);
+				set_motor(2, -80);	
+			}
+		}
+		else
+		{
+			set_motor(1, 80);
+			set_motor(2, 80);
+		}
 		
 		testClock++;
 	}
