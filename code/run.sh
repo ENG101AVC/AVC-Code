@@ -1,4 +1,4 @@
 #!/bin/sh
-git pull
+sudo git pull
 make
 sudo ./main2
