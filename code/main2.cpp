@@ -88,7 +88,7 @@ void follow_the_line(){
 	bool seeLine = false;					// Whether or not the line can be seen.
 	int proportional_signal_previous = 0;
 
-	while(true){
+	while(testClock < 300){
 		int current_error = 0;
 
 		take_picture();
@@ -125,8 +125,10 @@ void follow_the_line(){
 			set_motor(2, 50-proportional_signal_previous*3);
 		}
 
-	
+	testClock++;
 	}
+	set_motor(1, 0);
+	set_motor(2, 0);
 	return;
 }
 
@@ -149,7 +151,7 @@ int main(){
 
 	//network();			// Open Gate
 
-//	follow_the_line();	// Begin Following Line
+	follow_the_line();	// Begin Following Line
 
 	//follow_line_maze();	// Follow the Junction Line
 
