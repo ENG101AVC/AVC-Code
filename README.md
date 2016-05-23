@@ -62,7 +62,7 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [ ] Julius: Showing up - Poor effort - Postponed
 
 ##### Week Three
-- [ ] [ALL]: Progress update with team members and writing progress report ( - Julius)
+- [x] [ALL]: Progress update with team members and writing progress report ( - Julius)
 - [x] Rhaz: Robot opens gate
 - [x] Jacob: Robot opens gate
 - [x] Andrew: Robot opens the gate
@@ -71,10 +71,28 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [ ] Julius: Showing up & contributing to team meetings
 
 ##### Week Four
-- [ ] [All]: Progress update with team members
-- [ ] Rhaz: Quadrant 1 completed
-- [ ] Jacob: Quadrant 1 completed
-- [ ] Andrew: Quadrant 1 completed
-- [ ] Mitchell: Assist in hardware and quadrant 2
-- [ ] Theo: Attaching sensors to robot to deal with walls and obstructions
+- [x] [All]: Progress update with team members
+- [x] Rhaz: Quadrant 1 completed
+- [x] Jacob: Quadrant 1 completed
+- [x] Andrew: Quadrant 1 completed
+- [x] Mitchell: Assist in hardware and quadrant 2
+- [ ] Theo: Attaching sensors to robot to deal with walls and obstructions - postponed - code not at sensor-requiring level yet
 - [ ] Julius: Contributing
+
+#### Week Five
+- [x] [ALL]: Progress update with team members ( - Julius)
+- [x] Rhaz: PID system functioning
+- [x] Jacob: PID system functioning
+- [x] Andrew: PID system functioning
+- [x] Mitchell: Bug testing and fixing for PID
+- [x] Theo: Tune up battery clip
+- [x] Julius: Not show up or contact anyone - Set a realistic goal for Julius this week
+
+#### Week Six
+- [ ] [ALL]: Progress update with team members ( - Julius)
+- [ ] Rhaz: Quadrant 3 completed
+- [ ] Jacob: Quadrant 3 completed
+- [ ] Andrew: Quadrant 3 completed
+- [ ] Mitchell: Quadrant 3 completed
+- [ ] Theo: Attaching sensors to navigate quadrant 4
+- [ ] Julius: Same as last week since he was so good at it
