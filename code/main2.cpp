@@ -86,6 +86,7 @@ void follow_the_line(){
 	int testClock = 0;						// For testing the RPi.  Can terminate movement.
 	int threshold = determine_average();	//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 	int proportional_signal_previous;
+	int noLine_iteration = 0;
 
 	while(testClock < 600){
 
@@ -120,10 +121,16 @@ void follow_the_line(){
 			set_motor(1, 50+proportional_signal);
 			set_motor(2, 50-proportional_signal);
 			proportional_signal_previous = proportional_signal;
+			noLine_iteration = 0;
 		}
-		else{
+		else if(noLine_iteration < 5){
 			set_motor(1, 50+proportional_signal_previous*5);
 			set_motor(2, 50-proportional_signal_previous*5);
+			noLine_iteration++;
+		}
+		else{
+			set_motor(1, -30);
+			set_motor(2, -30);
 		}
 
 	testClock++;
