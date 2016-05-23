@@ -125,8 +125,9 @@ void follow_the_line(){
 			set_motor(2, 50-proportional_signal_previous*3);
 		}
 
-		return;
+	
 	}
+	return;
 }
 
 
