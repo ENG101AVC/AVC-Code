@@ -122,13 +122,13 @@ int determine_average(){
 // This method finds the error for 5 rows and averages them to create one.
 
 int average_error(int i){
-	error1 = get_pixel(i, 120, 3);
-	error2 = get_pixel(i, 118, 3);
-	error3 = get_pixel(i, 122, 3);
-	error4 = get_pixel(i, 116, 3);
-	error5 = get_pixel(i, 124, 3);
+	int error1 = get_pixel(i, 120, 3);
+	int error2 = get_pixel(i, 118, 3);
+	int error3 = get_pixel(i, 122, 3);
+	int error4 = get_pixel(i, 116, 3);
+	int error5 = get_pixel(i, 124, 3);
 
-	average_error = (int) (error5+error4+error3+error2+error1)/5;
+	int average_error = (int) (error5+error4+error3+error2+error1)/5;
 
 	return average_error;
 }
