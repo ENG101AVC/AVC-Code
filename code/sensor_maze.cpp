@@ -5,28 +5,26 @@
 // Import method statements. 
 extern "C" int init(int d_lev);
 extern "C" int set_motor(int motor , int speed );
-extern "C" int read_digital(int chan, int direct);
-extern "C" int select_IO(int chan, int direct);
+extern "C" int read_analog(int ch_adc);
 extern "C" int Sleep( int sec , int usec );
 
 void navigate_maze(){
 	//Define local variables
 	int testClock = 0; //For testing the RPi.  Can terminate movement.
+	
+	//For Data collection
+	int left; 
+	int right;
+	int front;
 
 	printf("Running Analog Code");
 	while(testClock < 1000){
+		//Sets 
+		left = read_analog(0);
+		right = read_analog(1);
+		front = read_analog(2);
 		
-		
-		testClock++;
-	}
-	
-	testClock = 0;
-	set_motor(1, 0);
-	set_motor(2, 0);
-	
-	printf("Running Digital Code");
-	while(testClock < 1000){
-		
+		//do something with data
 		
 		testClock++;
 	}
@@ -40,7 +38,7 @@ void navigate_maze(){
 
 int main(){
 	
-	init(0);			// Initialise Hardware
+	init(0);		// Initialise Hardware
 
 	navigate_maze();	// Navigate the Walled Maze
 
