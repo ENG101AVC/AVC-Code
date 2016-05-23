@@ -129,8 +129,8 @@ void follow_the_line(){
 			noLine_iteration++;
 		}
 		else{
-			set_motor(1, -30);
-			set_motor(2, -30);
+			set_motor(1, -60);
+			set_motor(2, -60);
 		}
 
 	testClock++;
