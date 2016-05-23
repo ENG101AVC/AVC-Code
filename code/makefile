@@ -1,2 +1,2 @@
-main:main.cpp
-	gcc -L/usr/lib -o main main.cpp -lE101 -w
+main2:main2.cpp
+	gcc -L/usr/lib -o main2 main2.cpp -lE101 -w
