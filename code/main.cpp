@@ -143,7 +143,10 @@ void beta_follow_the_line(){
             /* printf("Inside For Loop"); */
         }
         /* printf("Terminated for Loop"); */
-        derivative_signal = (double)(current_error - previous_error)/((int)time(NULL) - prev_time);
+        if((int)time(NULL) - prev_time == 0){
+            derivative_signal = 0
+        }
+        else {derivative_signal = (double)(current_error - previous_error)/((int)time(NULL) - prev_time);}
         proportional_signal = current_error/kp;
         sig = derivative_signal + proportional_signal;
         printf("Current Error is: %d\n", current_error);
