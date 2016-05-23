@@ -18,6 +18,46 @@ const double DIFFERENTIAL = 0;	// Differential Constant
 const double INTEGRAL = 0;		// Integral Constant
 
 
+// This method determines the average white/black levels.
+
+int determine_average(){
+	int max = 0;
+	int min = 255;
+	int theshold;
+
+	take_picture();					// Takes initial picture.
+	for(int i = 0; i<320; i++){
+
+		if(get_pixel(i, 120, 3)>max){		// Establishes Max.
+			max = get_pixel(i, 120, 3);
+		}
+
+		if(get_pixel(i, 120, 3)<min){		// Establishes Min.
+			min = get_pixel(i, 120, 3);
+
+		}
+	}
+
+	threshold = (max+min)/2;
+	return threshold;
+}
+
+
+// This method finds the error for 5 rows and averages them to create one.
+
+int average_error(int i){
+	int error1 = get_pixel(i, 120, 3);
+	int error2 = get_pixel(i, 118, 3);
+	int error3 = get_pixel(i, 122, 3);
+	int error4 = get_pixel(i, 116, 3);
+	int error5 = get_pixel(i, 124, 3);
+
+	int average_error = (int) (error5+error4+error3+error2+error1)/5;
+
+	return average_error;
+}
+
+
 /* 		The Following Methods Drive the RPi		*/
 
 
@@ -32,7 +72,7 @@ void network(){
 	connect_to_server("130.195.6.196", 1204);	// Connects to Gate.
 	send_to_server("Please");					// Requests permission.
 
-	recieve_from_server(message);	// Assigns the password to 'message'.
+	receive_from_server(message);	// Assigns the password to 'message'.
 	send_to_server(message);		// Sends password to server
 }
 
@@ -94,44 +134,9 @@ void follow_the_line(){
  
 
 
-// This method determines the average white/black levels.
-
-int determine_average(){
-	int max = 0;
-	int min = 255;
-	int theshold;
-
-	take_picture();					// Takes initial picture.
-	for(int i = 0; i<320; i++){
-
-		if(get_pixel(i, 120, 3)>max){		// Establishes Max.
-			max = get_pixel(i, 120, 3);
-		}
-
-		if(get_pixel(i, 120, 3)<min){		// Establishes Min.
-			min = get_pixel(i, 120, 3);
-
-		}
-	}
-
-	threshold = (max+min)/2;
-	return threshold;
-}
 
 
-// This method finds the error for 5 rows and averages them to create one.
 
-int average_error(int i){
-	int error1 = get_pixel(i, 120, 3);
-	int error2 = get_pixel(i, 118, 3);
-	int error3 = get_pixel(i, 122, 3);
-	int error4 = get_pixel(i, 116, 3);
-	int error5 = get_pixel(i, 124, 3);
-
-	int average_error = (int) (error5+error4+error3+error2+error1)/5;
-
-	return average_error;
-}
 
 
 
