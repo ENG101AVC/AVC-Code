@@ -155,11 +155,11 @@ int main(){
 	
 	init(0);			// Initialise Hardware
 
-	//network();			// Open Gate
+	network();			// Open Gate
 
 	follow_the_line();	// Begin Following Line
 
-//	maze_navigation();	// Navigate the maze.
+	maze_navigation();	// Navigate the maze.
 
 
 	//Emergency Stop
