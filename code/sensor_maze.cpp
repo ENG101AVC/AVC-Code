@@ -6,6 +6,8 @@
 extern "C" int init(int d_lev);
 extern "C" int set_motor(int motor , int speed );
 extern "C" int read_analog(int ch_adc);
+extern "C" int read_digital(int chan, int direct);
+extern "C" int select_IO(int chan, int direct);
 extern "C" int Sleep( int sec , int usec );
 
 void navigate_maze(){
@@ -16,15 +18,18 @@ void navigate_maze(){
 	int left; 
 	int right;
 	int front;
+	
+	int select_IO(0, 1);
 
 	printf("Running Analog Code");
 	while(testClock < 1000){
 		//Sets 
 		left = read_analog(0);
 		right = read_analog(1);
-		front = read_analog(2);
+		//front = read_analog(2);
+		front = read_digital(0);
 		
-		if(front < 80)
+		if(front < /*value*/)
 		{
 			if (left > 450)
 			{
