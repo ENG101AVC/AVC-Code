@@ -69,7 +69,7 @@ int average_error(int i){
 void network(){
 	char message[24];							// Assigns memory to password.
 
-	connect_to_server("130.195.6.196", 1204);	// Connects to Gate.
+	connect_to_server("130.195.6.196", 1024);	// Connects to Gate.
 	send_to_server("Please");					// Requests permission.
 
 	receive_from_server(message);				// Assigns the password to 'message'.
@@ -121,16 +121,16 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(seeLine && num_of_white < 70){
+		if(seeLine && num_of_white < 170){
 			set_motor(1, 40+proportional_signal);
 			set_motor(2, 40-proportional_signal);
 			proportional_signal_previous = proportional_signal;
 		}
-		else if(num_of_white<320 && num_of_white>=70){
+		else if(num_of_white<300 && num_of_white>=170){
 			set_motor(1, 40);
 			set_motor(2, 40);
 		}
-		else if(num_of_white >= 320){
+		else if(num_of_white >= 300){
 			set_motor(1, 50);
 			set_motor(2, 0);
 			Sleep(1,0);
