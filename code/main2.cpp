@@ -87,7 +87,7 @@ void follow_the_line(){
 	int threshold = determine_average();	//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 	int proportional_signal_previous;
 
-	while(testClock < 300){
+	while(testClock < 600){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
