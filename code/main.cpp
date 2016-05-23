@@ -31,7 +31,7 @@ void network() {
     //printf("%s", message);
     send_to_server(message);
 }
-
+/*
 void follow_the_line(){
     int testClock = 0;
     int max_val = 0;
@@ -90,7 +90,7 @@ void follow_the_line(){
 
     }
 }
-
+*/
 void beta_follow_the_line(){
     int testClock = 0;
     int max_val = 0;
