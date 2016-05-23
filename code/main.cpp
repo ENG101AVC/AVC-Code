@@ -143,12 +143,12 @@ void beta_follow_the_line(){
             /* printf("Inside For Loop"); */
         }
         /* printf("Terminated for Loop"); */
-        derivative_signal = (double)(current_error - previous_error)/((int)time(NULL) - prev_time)
+        derivative_signal = (double)(current_error - previous_error)/((int)time(NULL) - prev_time);
         proportional_signal = current_error/kp;
         sig = derivative_signal + proportional_signal;
         printf("Current Error is: %d\n", current_error);
         printf("Proportional signal is: %d\n", proportional_signal );
-        printf("signal is: %f\n", sig)
+        printf("signal is: %f\n", sig);
         if(seeLine){
             set_motor(1, 50+sig);
             set_motor(2, 50-sig);
