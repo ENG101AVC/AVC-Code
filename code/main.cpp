@@ -158,11 +158,11 @@ void beta_follow_the_line(){
         }
         Sleep(0,1000);
         if(whiteness > 100){
-            return 0; 
-            break;
+            return; 
+            
         }
     }
-    return 0;
+    return;
 }
 
 void follow_line_maze() {
@@ -209,7 +209,7 @@ void follow_line_maze() {
         clock++;
     }
 
-    return 0;
+    return;
 }
 
 void maze_navigation(){
