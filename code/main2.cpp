@@ -16,7 +16,7 @@ extern "C" int read_digital(int chan, int direct);
 extern "C" int select_IO(int chan, int direct);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const double PROPORTIONAL = 400;	// Proportional Constant
+const double PROPORTIONAL = 500;	// Proportional Constant
 const double DIFFERENTIAL = 0;		// Differential Constant
 const double INTEGRAL = 0;			// Integral Constant
 
@@ -75,9 +75,7 @@ void turn_Rpi(int direction){
 
 	else if(direction == 1){
 		// 90 Degree clockwise
-		set_motor(1, 30);
-		set_motor(2, 30);
-		Sleep(4, 0);
+		
 		set_motor(1, 50);
 		set_motor(2, -50);
 		Sleep(1, 0);
@@ -88,9 +86,7 @@ void turn_Rpi(int direction){
 
 	else if(direction == 2){
 		// 90 Degree antclockwise
-		set_motor(1, 30);
-		set_motor(2, 30);
-		Sleep(4, 0);
+
 		set_motor(1, -50);
 		set_motor(2, 50);
 		Sleep(1, 0);
