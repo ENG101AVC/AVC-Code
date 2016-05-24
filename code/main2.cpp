@@ -152,10 +152,10 @@ void follow_the_line(){
 void follow_the_intersections(){
 	set_motor(1, 30);
 	set_motor(2, 30);
-	Sleep(0, 500000);
+	Sleep(1, 0);
 	set_motor(1, 50);
 	set_motor(2, -50);
-	Sleep(1, 200000);
+	Sleep(1, 100000);
 
 	set_motor(1, 0);
 	set_motor(2, 0);
