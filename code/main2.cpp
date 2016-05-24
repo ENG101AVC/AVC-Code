@@ -191,6 +191,7 @@ void follow_the_line(){
 
 
 void Complete_until_maze(){
+	/*  OLD RHAZ CODE
 	num_of_decisions = 0;
 	
 	while(num_of_decisions<4){
@@ -205,6 +206,55 @@ void Complete_until_maze(){
 		num_of_decisions++;
 		printf("---------------- Decision Number: %d\n", num_of_decisions);
 	}
+	return;
+	*/
+	
+	bool seeLine = false;					// Whether or not the line can be seen.
+	int current_error = 0;
+	num_of_white = 0;
+	int threshold = determine_average();
+
+	take_picture();
+
+	for(int i=0; i<320; i++){
+		int error = average_error(i);
+		if(error >= threshold){				// If RPi sees 'white'
+			error = 1;						// Converts to binary represenation
+			seeLine = true;					// The Line can be seen
+			num_of_white++;
+		}
+		else{								// If RPi sees 'black'
+			error = 0;						// Converts to binary representation
+		}
+
+		current_error = current_error + error*(i-160);
+	}
+
+	int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
+
+	// Print checks:
+	printf("Current Error: %d\n", current_error);
+	printf("Proportional Signal: %d\n", proportional_signal);
+	printf("Number of White Pixels: %d\n", num_of_white);
+
+	if(num_of_white < 45){
+		set_motor(1, -50);
+		set_motor(2, 50);
+	}
+	else if(seeLine){
+		set_motor(1, 35+proportional_signal);
+		set_motor(2, 35-proportional_signal);
+		proportional_signal_previous = proportional_signal;
+	}
+	else{
+		set_motor(1, 50+proportional_signal_previous*7);
+		set_motor(2, 50-proportional_signal_previous*7);
+	}
+
+	testClock++;
+	}
+	set_motor(1, 0);
+	set_motor(2, 0);
 	return;
 
 }
@@ -280,7 +330,7 @@ int main(){
 
 //	network();			// Open Gate
 
-	
+	//follow_the_line();
 	Complete_until_maze();    // Begin Following Line
 
 
