@@ -249,6 +249,7 @@ void Complete_until_maze(){
 		if(num_of_white>=319){
 			set_motor(1, -35);
 			set_motor(2, 35);
+			Sleep(0,500000);
 		}
 		else if(seeLine){
 			set_motor(1, 35+proportional_signal);
