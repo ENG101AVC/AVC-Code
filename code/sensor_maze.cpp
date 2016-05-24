@@ -6,7 +6,7 @@
 extern "C" int init(int d_lev);
 extern "C" int set_motor(int motor , int speed );
 extern "C" int read_analog(int ch_adc);
-extern "C" int read_digital(int chan, int direct);
+extern "C" int read_digital(int chan);
 extern "C" int select_IO(int chan, int direct);
 extern "C" int Sleep( int sec , int usec );
 
