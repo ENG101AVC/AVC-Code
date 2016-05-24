@@ -18,8 +18,7 @@ void navigate_maze(){
 	int left; 
 	int right;
 	int front;
-	std::string currWall;
-	currWall = "left";
+	int dir = 1;
 	
 	int select_IO(0, 1);
 
@@ -31,7 +30,7 @@ void navigate_maze(){
 		//front = read_analog(2);
 		front = read_digital(0);
 		
-		if(currWall == "left")
+		if(dir == 1)
 		{
 			if(front > 1)
 			{
