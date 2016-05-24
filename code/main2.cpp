@@ -210,7 +210,7 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(num_of_white>280){
+		if(num_of_white>220){
 			set_motor(1, 0);
 			set_motor(2, 0);
 			return;
