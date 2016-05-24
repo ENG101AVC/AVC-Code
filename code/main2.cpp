@@ -21,7 +21,6 @@ const double DIFFERENTIAL = 0;		// Differential Constant
 const double INTEGRAL = 0;			// Integral Constant
 
 int num_of_decisions = 0;
-int threshold = 0;
 
 
 // This method determines the average white/black levels.
@@ -189,6 +188,7 @@ void follow_the_line(){
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
 		num_of_white = 0;
+		int threshold = determine_average();
 
 		take_picture();
 
@@ -318,7 +318,7 @@ void maze_navigation(){
 int main(){
 	
 	init(0);			// Initialise Hardware
-	int threshold = determine_average();		//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
+			//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 
 //	network();			// Open Gate
 
