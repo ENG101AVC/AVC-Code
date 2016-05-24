@@ -265,11 +265,11 @@ void Complete_until_maze(){
 			Sleep(0,600000);
 			
 		}
-		if(num_of_white>=310){
+		if(num_of_white>=280){
 			printf("Bend: T, Turn: Left\n");
-			set_motor(1, 40);
-			set_motor(2, 40);
-			Sleep(1,0);
+			set_motor(1, 35);
+			set_motor(2, 35);
+			Sleep(0,800000);
 			set_motor(1, -40);
 			set_motor(2, 40);
 			Sleep(0,900000);
