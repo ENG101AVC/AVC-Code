@@ -18,7 +18,7 @@ void navigate_maze(){
 	int left; 
 	int right;
 	int front;
-	String currWall = "left";
+	string currWall = "left";
 	
 	int select_IO(0, 1);
 
