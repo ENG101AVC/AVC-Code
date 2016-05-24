@@ -259,8 +259,8 @@ void Complete_until_maze(){
 				set_motor(2, -45);
 			}
 			else{
-				set_motor(1, -55);
-				set_motor(2, -55);
+				set_motor(1, -35);
+				set_motor(2, -35);
 			}
 			Sleep(0,900000);
 			
