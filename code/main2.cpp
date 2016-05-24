@@ -240,11 +240,11 @@ void follow_the_line(){
 
 void Complete_until_maze(){
 	num_of_decisions = 0;
-	for(int testClock = 0; testClock < 3000; testClock++){
+	while(num_of_decisions<11){
 		follow_the_line();
 		make_decision();
 		num_of_decisions++;
-		printf("Decision Number: %d\n", num_of_decisions);
+		printf("---------------- Decision Number: %d\n", num_of_decisions);
 	}
 	return;
 
