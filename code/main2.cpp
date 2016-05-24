@@ -164,7 +164,7 @@ void follow_the_line(){
 		//printf("Current Error: %d\n", current_error);
 		//printf("Proportional Signal: %d\n", proportional_signal);
 		//printf("Number of White Pixels: %d\n", num_of_white);
-		printf("%d ", num_of_white);
+		printf("%d\n", num_of_white);
 
 		if(num_of_white>=310){
 			printf("SWITCHING TO TURNING CODE\n");
