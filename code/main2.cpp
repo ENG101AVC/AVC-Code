@@ -254,22 +254,26 @@ void Complete_until_maze(){
 			{
 				set_motor(1, -40);
 				set_motor(2, 40);
+				printf("Bend: L, Turn: Left\n");
 			}
 			else
 			{
 				set_motor(1, 40);
 				set_motor(2, -40);
+				printf("Bend: L, Turn: Right\n");
 			}
 			Sleep(0,600000);
 			
 		}
 		if(num_of_white>=310){
+			printf("Bend: T, Turn: Left\n");
 			set_motor(1, 30);
 			set_motor(2, 30);
 			Sleep(1,0);
 			set_motor(1, -40);
 			set_motor(2, 40);
 			Sleep(0,600000);
+			
 			
 		}
 		else if(seeLine){
