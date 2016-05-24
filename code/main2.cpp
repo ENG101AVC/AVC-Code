@@ -210,7 +210,7 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(num_of_white>300){
+		if(num_of_white>310){
 			set_motor(1, 0);
 			set_motor(2, 0);
 			return;
@@ -239,6 +239,10 @@ void Complete_until_maze(){
 	num_of_decisions = 0;
 	while(num_of_decisions<11){
 		follow_the_line();
+		set_motor(2, 20);
+		set_motor(1, 0);
+		set_motor(1, 30);
+		set_
 		//make_decision();
 		num_of_decisions++;
 		printf("---------------- Decision Number: %d\n", num_of_decisions);
