@@ -124,7 +124,7 @@ void follow_the_line(){
 		if(num_of_white>310){
 			set_motor(1, 0);
 			set_motor(2, 0);
-			Sleep(2, 0);
+			return;
 		}
 		if(seeLine){
 			set_motor(1, 35+proportional_signal);
@@ -144,7 +144,15 @@ void follow_the_line(){
 }
 
 
-/*		The Following Methods Lend themselves to simplifying the code.		*/
+void follow_the_intersections(){
+	set_motor(1, 50);
+	sleep(6, 0);
+
+	set_motor(1, 0);
+	set_motor(2, 0);
+	return;
+
+}
  
 
 
@@ -160,11 +168,13 @@ int main(){
 	
 	init(0);			// Initialise Hardware
 
-	//network();			// Open Gate
+	network();			// Open Gate
 
 	follow_the_line();	// Begin Following Line
 
-//	maze_navigation();	// Navigate the maze.
+	follow_the_intersections();
+
+	//maze_navigation();	// Navigate the maze.
 
 
 	//Emergency Stop
