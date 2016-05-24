@@ -214,7 +214,7 @@ void Complete_until_maze(){
 	int proportional_signal_previous;
 	int num_of_white = 0;
 	int leftpixel = 0;
-	int righttpixel = 0;
+	int rightpixel = 0;
 
 	while(testClock < 500){
 
