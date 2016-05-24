@@ -166,7 +166,7 @@ void follow_the_line(){
 		//printf("Number of White Pixels: %d\n", num_of_white);
 		printf("%d\n", num_of_white);
 
-		if(num_of_white>=310){
+		if(num_of_white>=280){
 			printf("SWITCHING TO TURNING CODE\n");
 			set_motor(1, 30);
 			set_motor(2, 30);
@@ -267,12 +267,12 @@ void Complete_until_maze(){
 		}
 		if(num_of_white>=310){
 			printf("Bend: T, Turn: Left\n");
-			set_motor(1, 30);
-			set_motor(2, 30);
+			set_motor(1, 40);
+			set_motor(2, 40);
 			Sleep(1,0);
 			set_motor(1, -40);
 			set_motor(2, 40);
-			Sleep(0,600000);
+			Sleep(0,900000);
 			
 			
 		}
