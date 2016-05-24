@@ -29,7 +29,7 @@ int threshold = 0;
 int determine_average(){
 	int max = 0;
 	int min = 255;
-	int theshold;
+	int average;
 
 	take_picture();							// Takes initial picture.
 	for(int i = 0; i<320; i++){
@@ -44,7 +44,7 @@ int determine_average(){
 		}
 	}
 
-	int threshold = (max+min)/2;
+	average = (max+min)/2;
 	return threshold;
 }
 
@@ -145,6 +145,7 @@ void make_decision(){
 	else if(num_of_decisions == 10){
 		turn_Rpi(2);
 	}
+	return;
 }
 
 
@@ -180,14 +181,14 @@ void follow_the_line(){
 	//Define local variables
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
 	int proportional_signal_previous;
-
+	int num_of_white = 0;
 	
 
 	while(testClock < 1500){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
-		int num_of_white = 0;
+		num_of_white = 0;
 
 		take_picture();
 
@@ -218,7 +219,7 @@ void follow_the_line(){
 			set_motor(2, 0);
 			return;
 		}
-		if(seeLine){
+		else if(seeLine){
 			set_motor(1, 35+proportional_signal);
 			set_motor(2, 35-proportional_signal);
 			proportional_signal_previous = proportional_signal;
