@@ -214,7 +214,6 @@ void Complete_until_maze(){
 	int proportional_signal_previous;
 	int num_of_white = 0;
 	int leftpixel = 0;
-	int rightpixel = 0;
 
 	while(testClock < 500){
 
@@ -253,16 +252,12 @@ void Complete_until_maze(){
 				set_motor(1, -45);
 				set_motor(2, 45);
 			}
-			else if(rightpixel == 1)
+			else
 			{
 				set_motor(1, 45);
 				set_motor(2, -45);
 			}
-			else{
-				set_motor(1, -35);
-				set_motor(2, -35);
-			}
-			Sleep(0,900000);
+			Sleep(1,0);
 			
 		}
 		else if(seeLine){
@@ -275,19 +270,12 @@ void Complete_until_maze(){
 			set_motor(2, 50-proportional_signal_previous*7);
 		}
 		
-		if(average_error(40) >= threshold) 
+		if(average_error(60) >= threshold) 
 		{
 			leftpixel = 1;
 		}
 		else{
 			leftpixel = 0;
-		}
-		if(average_error(200) >= threshold) 
-		{
-			rightpixel = 1;
-		}	
-		else{
-			rightpixel = 0;
 		}
 
 	testClock++;
