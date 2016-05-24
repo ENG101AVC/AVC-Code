@@ -247,13 +247,12 @@ void Complete_until_maze(){
 		printf("Number of White Pixels: %d\n", num_of_white);
 
 		if(num_of_white>=319){
-			set_motor(1, 0);
-			set_motor(2, 0);
-			return;
+			set_motor(1, -35);
+			set_motor(2, 35);
 		}
 		else if(seeLine){
-			set_motor(1, 50+proportional_signal);
-			set_motor(2, 50-proportional_signal);
+			set_motor(1, 35+proportional_signal);
+			set_motor(2, 35-proportional_signal);
 			proportional_signal_previous = proportional_signal;
 		}
 		else{
