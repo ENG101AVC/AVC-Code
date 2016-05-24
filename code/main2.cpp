@@ -121,6 +121,11 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
+		if(num_of_white>310){
+			set_motor(1, 0);
+			set_motor(2, 0);
+			Sleep(2, 0);
+		}
 		if(seeLine){
 			set_motor(1, 35+proportional_signal);
 			set_motor(2, 35-proportional_signal);
