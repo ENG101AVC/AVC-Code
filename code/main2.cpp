@@ -44,7 +44,7 @@ int determine_average(){
 	}
 
 	average = (max+min)/2;
-	return threshold;
+	return average;
 }
 
 
