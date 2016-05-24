@@ -209,47 +209,57 @@ void Complete_until_maze(){
 	return;
 	*/
 	
-	bool seeLine = false;					// Whether or not the line can be seen.
-	int current_error = 0;
-	num_of_white = 0;
-	int threshold = determine_average();
+	//Define local variables
+	int testClock = 0;							// For testing the RPi.  Can terminate movement.
+	int proportional_signal_previous;
+	int num_of_white = 0;
+	
 
-	take_picture();
+	while(testClock < 1500){
 
-	for(int i=0; i<320; i++){
-		int error = average_error(i);
-		if(error >= threshold){				// If RPi sees 'white'
-			error = 1;						// Converts to binary represenation
-			seeLine = true;					// The Line can be seen
-			num_of_white++;
+		bool seeLine = false;					// Whether or not the line can be seen.
+		int current_error = 0;
+		num_of_white = 0;
+		int threshold = determine_average();
+
+		take_picture();
+
+		for(int i=0; i<320; i++){
+			int error = average_error(i);
+
+			if(error >= threshold){				// If RPi sees 'white'
+				error = 1;						// Converts to binary represenation
+				seeLine = true;					// The Line can be seen
+				num_of_white++;
+			}
+			else{								// If RPi sees 'black'
+				error = 0;						// Converts to binary representation
+			}
+
+			current_error = current_error + error*(i-160);
 		}
-		else{								// If RPi sees 'black'
-			error = 0;						// Converts to binary representation
+
+		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
+
+		// Print checks:
+		printf("Current Error: %d\n", current_error);
+		printf("Proportional Signal: %d\n", proportional_signal);
+		printf("Number of White Pixels: %d\n", num_of_white);
+
+		if(num_of_white>=319){
+			set_motor(1, 0);
+			set_motor(2, 0);
+			return;
 		}
-
-		current_error = current_error + error*(i-160);
-	}
-
-	int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
-
-	// Print checks:
-	printf("Current Error: %d\n", current_error);
-	printf("Proportional Signal: %d\n", proportional_signal);
-	printf("Number of White Pixels: %d\n", num_of_white);
-
-	if(num_of_white < 45){
-		set_motor(1, -50);
-		set_motor(2, 50);
-	}
-	else if(seeLine){
-		set_motor(1, 35+proportional_signal);
-		set_motor(2, 35-proportional_signal);
-		proportional_signal_previous = proportional_signal;
-	}
-	else{
-		set_motor(1, 50+proportional_signal_previous*7);
-		set_motor(2, 50-proportional_signal_previous*7);
-	}
+		else if(seeLine){
+			set_motor(1, 50+proportional_signal);
+			set_motor(2, 50-proportional_signal);
+			proportional_signal_previous = proportional_signal;
+		}
+		else{
+			set_motor(1, 50+proportional_signal_previous*7);
+			set_motor(2, 50-proportional_signal_previous*7);
+		}
 
 	testClock++;
 	}
