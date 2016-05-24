@@ -91,7 +91,7 @@ void follow_the_line(){
 
 	
 
-	while(testClock < 2100){
+	while(testClock < 1500){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
@@ -127,8 +127,8 @@ void follow_the_line(){
 			proportional_signal_previous = proportional_signal;
 		}
 		else{
-			set_motor(1, 50+proportional_signal_previous*6);
-			set_motor(2, 50-proportional_signal_previous*6);
+			set_motor(1, 50+proportional_signal_previous*7);
+			set_motor(2, 50-proportional_signal_previous*7);
 		}
 
 	testClock++;
@@ -159,7 +159,7 @@ int main(){
 
 	follow_the_line();	// Begin Following Line
 
-	//maze_navigation();	// Navigate the maze.
+	maze_navigation();	// Navigate the maze.
 
 
 	//Emergency Stop
