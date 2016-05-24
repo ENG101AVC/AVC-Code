@@ -102,51 +102,6 @@ void short_forward(){
 		set_motor(2, 30);
 		Sleep(1, 0);
 }
-
-void make_decision(){
-	if(num_of_decisions == 0){
-		short_forward();
-	}
-	else if(num_of_decisions == 1){
-		short_forward();
-	}
-	else if(num_of_decisions == 2){
-		short_forward();
-	}
-	else if(num_of_decisions == 3){
-		turn_Rpi(2);
-	}
-	else if (num_of_decisions == 4){
-		turn_Rpi(1);
-	}
-	else if(num_of_decisions == 5){
-		turn_Rpi(1);
-	}
-	else if(num_of_decisions == 6){
-		turn_Rpi(2);
-	}
-	else if(num_of_decisions == 7){
-		turn_Rpi(2);
-	}
-	else if(num_of_decisions == 8){
-		turn_Rpi(1);
-	}
-	else if(num_of_decisions == 9){
-		turn_Rpi(1);
-	}
-	else if(num_of_decisions == 10){
-		turn_Rpi(1);
-	}
-	else if(num_of_decisions == 10){
-		turn_Rpi(2);
-	}
-	return;
-}
-
-
-
-
-
 /* 		The Following Methods Drive the RPi		*/
 
 
@@ -237,10 +192,10 @@ void follow_the_line(){
 
 void Complete_until_maze(){
 	num_of_decisions = 0;
+	follow_the_line();
 	while(num_of_decisions<4){
 		if(num_of_decisions > 0){
-			follow_the_line();
-			set_motor(2, 50);
+			set_motor(2, 100);
 			set_motor(1, 0);
 			set_motor(1, 30);
 			set_motor(2, 30);
