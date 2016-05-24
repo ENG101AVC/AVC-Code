@@ -61,6 +61,51 @@ int average_error(int i){
 }
 
 
+void turn_Rpi(int direction){			
+	if(direction == 0){
+		set_motor(1, 50);
+		set_motor(2, -50);
+		Sleep(2, 0);
+		set_motor(1, 0);
+		set_motor(2, 0);
+	}
+
+	else if(direction == 1){
+		set_motor(1, 30);
+		set_motor(2, 30);
+		Sleep(4, 0);
+		set_motor(1, 50);
+		set_motor(2, -50);
+		Sleep(1, 0);
+
+		set_motor(1, 0);
+		set_motor(2, 0);
+	}
+
+	else{
+		set_motor(1, 30);
+		set_motor(2, 30);
+		Sleep(4, 0);
+		set_motor(1, -50);
+		set_motor(2, 50);
+		Sleep(1, 0);
+
+		set_motor(1, 0);
+		set_motor(2, 0);
+	}
+return;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* 		The Following Methods Drive the RPi		*/
 
 
@@ -150,15 +195,9 @@ void follow_the_line(){
 
 
 void follow_the_intersections(){
-	set_motor(1, 30);
-	set_motor(2, 30);
-	Sleep(4, 0);
-	set_motor(1, 50);
-	set_motor(2, -50);
-	Sleep(1, 0);
-
-	set_motor(1, 0);
-	set_motor(2, 0);
+	turn_Rpi(0);
+	turn_Rpi(1);
+	turn_Rpi(2);
 	return;
 
 }
