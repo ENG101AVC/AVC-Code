@@ -11,6 +11,9 @@ extern "C" int take_picture();
 extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
+extern "C" int read_analog(int ch_adc);
+extern "C" int read_digital(int chan, int direct);
+extern "C" int select_IO(int chan, int direct);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
 const double PROPORTIONAL = 500;	// Proportional Constant
@@ -154,6 +157,57 @@ void follow_the_intersections(){
 	return;
 
 }
+
+void maze_navigation(){
+	//Define local variables
+	int testClock = 0; //For testing the RPi.  Can terminate movement.
+	
+	//For Data collection
+	int left; 
+	int right;
+	int front;
+	
+	int select_IO(0, 1);
+
+	printf("Running Analog Code");
+	while(testClock < 1000){
+		//Sets 
+		left = read_analog(0);
+		right = read_analog(1);
+		//front = read_analog(2);
+		front = read_digital(0);
+		
+		if(front < /*value*/)
+		{
+			if (left > 250)
+			{
+				set_motor(1, -45);
+				set_motor(2, 45);	
+			}
+			else if(right > 350){
+				set_motor(1, 45);
+				set_motor(2, -45);	
+			}
+			else{
+				set_motor(1, -80);
+				set_motor(2, -80);	
+			}
+		}
+		else
+		{
+			set_motor(1, 80);
+			set_motor(2, 80);
+		}
+		
+		Sleep(0,500000);
+		
+		testClock++;
+	}
+	
+	set_motor(1, 0);
+	set_motor(2, 0);
+	return;
+}
  
 
 
@@ -175,7 +229,7 @@ int main(){
 
 	
 
-	//maze_navigation();	// Navigate the maze.
+	maze_navigation();	// Navigate the maze.
 
 
 	//Emergency Stop
