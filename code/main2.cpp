@@ -68,7 +68,7 @@ void turn_Rpi(int direction){
 		// 180 Degree Turn
 		set_motor(1, 50);
 		set_motor(2, -50);
-		Sleep(2, 0);
+		Sleep(1, 0);
 		set_motor(1, 0);
 		set_motor(2, 0);
 	}
@@ -100,7 +100,7 @@ return;
 void short_forward(){
 		set_motor(1, 30);
 		set_motor(2, 30);
-		Sleep(2, 0);
+		Sleep(1, 0);
 }
 
 void make_decision(){
