@@ -20,6 +20,9 @@ const double PROPORTIONAL = 500;	// Proportional Constant
 const double DIFFERENTIAL = 0;		// Differential Constant
 const double INTEGRAL = 0;			// Integral Constant
 
+int num_of_decisions = 0;
+int threshold = 0;
+
 
 // This method determines the average white/black levels.
 
@@ -63,6 +66,7 @@ int average_error(int i){
 
 void turn_Rpi(int direction){			
 	if(direction == 0){
+		// 180 Degree Turn
 		set_motor(1, 50);
 		set_motor(2, -50);
 		Sleep(2, 0);
@@ -71,6 +75,7 @@ void turn_Rpi(int direction){
 	}
 
 	else if(direction == 1){
+		// 90 Degree clockwise
 		set_motor(1, 30);
 		set_motor(2, 30);
 		Sleep(4, 0);
@@ -82,7 +87,8 @@ void turn_Rpi(int direction){
 		set_motor(2, 0);
 	}
 
-	else{
+	else if(direction == 2){
+		// 90 Degree antclockwise
 		set_motor(1, 30);
 		set_motor(2, 30);
 		Sleep(4, 0);
@@ -96,11 +102,50 @@ void turn_Rpi(int direction){
 return;
 }
 
+void short_forward(){
+		set_motor(1, 30);
+		set_motor(2, 30);
+		Sleep(2, 0);
+}
 
-
-
-
-
+void make_decision(){
+	if(num_of_decisions == 0){
+		short_forward();
+	}
+	else if(num_of_decisions == 1){
+		short_forward();
+	}
+	else if(num_of_decisions == 2){
+		short_forward();
+	}
+	else if(num_of_decisions == 3){
+		turn_Rpi(2);
+	}
+	else if (num_of_decisions == 4){
+		turn_Rpi(1);
+	}
+	else if(num_of_decisions == 5){
+		turn_Rpi(1);
+	}
+	else if(num_of_decisions == 6){
+		turn_Rpi(2);
+	}
+	else if(num_of_decisions == 7){
+		turn_Rpi(2);
+	}
+	else if(num_of_decisions == 8){
+		turn_Rpi(1);
+	}
+	else if(num_of_decisions == 9){
+		turn_Rpi(1);
+	}
+	else if(num_of_decisions == 10){
+		turn_Rpi(1);
+	}
+	else if(num_of_decisions == 10){
+		turn_Rpi(2);
+	}
+}
 
 
 
@@ -134,7 +179,6 @@ void follow_the_line(){
 
 	//Define local variables
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
-	int threshold = determine_average();		//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 	int proportional_signal_previous;
 
 	
@@ -169,7 +213,7 @@ void follow_the_line(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(num_of_white>310){
+		if(num_of_white>250){
 			set_motor(1, 0);
 			set_motor(2, 0);
 			return;
@@ -194,10 +238,14 @@ void follow_the_line(){
 
 
 
-void follow_the_intersections(){
-	turn_Rpi(0);
-	turn_Rpi(1);
-	turn_Rpi(2);
+void Complete_until_maze(){
+	num_of_decisions = 0;
+	for(testClock = 0; testClock < 3000; testClock++){
+		follow_the_line();
+		make_decision();
+		num_of_decisions++;
+		printf("Decision Number")
+	}
 	return;
 
 }
@@ -269,14 +317,12 @@ void maze_navigation(){
 int main(){
 	
 	init(0);			// Initialise Hardware
+	int threshold = determine_average();		//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 
 //	network();			// Open Gate
 
-	follow_the_line();	// Begin Following Line
-
-	follow_the_intersections();
-
-	//maze_navigation();	// Navigate the maze.
+	
+	Complete_until_maze();    // Begin Following Line
 
 
 	//Emergency Stop
