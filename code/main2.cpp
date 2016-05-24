@@ -269,15 +269,15 @@ void Complete_until_maze(){
 			set_motor(1, 50+proportional_signal_previous*7);
 			set_motor(2, 50-proportional_signal_previous*7);
 		}
-		
-		if(average_error(60) >= threshold) 
-		{
-			leftpixel = 1;
+		if(seeLine){
+			if(average_error(60) >= threshold) 
+			{
+				leftpixel = 1;
+			}
+			else{
+				leftpixel = 0;
+			}
 		}
-		else{
-			leftpixel = 0;
-		}
-
 	testClock++;
 	}
 	set_motor(1, 0);
