@@ -152,7 +152,7 @@ void follow_the_line(){
 void follow_the_intersections(){
 	set_motor(1, 50);
 	set_motor(2, -50);
-	sleep(6, 0);
+	Sleep(6, 0);
 
 	set_motor(1, 0);
 	set_motor(2, 0);
@@ -161,7 +161,7 @@ void follow_the_intersections(){
 }
 
 
-
+/*
 
 void maze_navigation(){
 	//Define local variables
@@ -182,7 +182,7 @@ void maze_navigation(){
 		//front = read_analog(2);
 		front = read_digital(0);
 		
-		if(front < /*value*/)
+		if(front < //value)
 		{
 			if (left > 250)
 			{
@@ -213,7 +213,7 @@ void maze_navigation(){
 	set_motor(2, 0);
 	return;
 }
- 
+ */
 
 
 
