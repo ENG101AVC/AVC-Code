@@ -215,7 +215,7 @@ void Complete_until_maze(){
 	int num_of_white = 0;
 	int leftpixel = 0;
 
-	while(testClock < 1500){
+	while(testClock < 500){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
