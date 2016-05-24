@@ -74,6 +74,8 @@ void network(){
 
 	receive_from_server(message);				// Assigns the password to 'message'.
 	send_to_server(message);					// Sends password to server
+
+	printf(message);
 }
 
 
@@ -111,8 +113,6 @@ void follow_the_line(){
 
 			current_error = current_error + error*(i-160);
 		}
-
-		//if(whiteness > 300){return;}	// Moves to White Line Maze
 
 		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
 
@@ -157,9 +157,9 @@ int main(){
 
 	network();			// Open Gate
 
-	follow_the_line();	// Begin Following Line
+	//follow_the_line();	// Begin Following Line
 
-	maze_navigation();	// Navigate the maze.
+	//maze_navigation();	// Navigate the maze.
 
 
 	//Emergency Stop
