@@ -260,6 +260,12 @@ void Complete_until_maze(){
 			Sleep(1,0);
 			
 		}
+		if(num_of_white>=310){
+			set_motor(1, -40);
+			set_motor(2, 40);
+			Sleep(1,0);
+			
+		}
 		else if(seeLine){
 			set_motor(1, 35+proportional_signal);
 			set_motor(2, 35-proportional_signal);
