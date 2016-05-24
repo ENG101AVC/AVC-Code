@@ -257,7 +257,7 @@ void Complete_until_maze(){
 				set_motor(1, 40);
 				set_motor(2, -40);
 			}
-			Sleep(1,0);
+			Sleep(0,600000);
 			
 		}
 		if(num_of_white>=310){
