@@ -192,8 +192,9 @@ void follow_the_line(){
 
 void Complete_until_maze(){
 	num_of_decisions = 0;
-	follow_the_line();
+	
 	while(num_of_decisions<4){
+		follow_the_line();
 		if(num_of_decisions > 0){
 			set_motor(2, 100);
 			set_motor(1, 0);
