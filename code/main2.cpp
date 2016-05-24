@@ -16,7 +16,7 @@ extern "C" int read_digital(int chan, int direct);
 extern "C" int select_IO(int chan, int direct);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
-const double PROPORTIONAL = 500;	// Proportional Constant
+const double PROPORTIONAL = 550;	// Proportional Constant
 const double DIFFERENTIAL = 0;		// Differential Constant
 const double INTEGRAL = 0;			// Integral Constant
 
