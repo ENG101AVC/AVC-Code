@@ -124,6 +124,7 @@ void follow_the_line(){
 		if(num_of_white>310){
 			set_motor(1, 0);
 			set_motor(2, 0);
+			follow_the_intersections();
 			return;
 		}
 		if(seeLine){
@@ -172,7 +173,7 @@ int main(){
 
 	follow_the_line();	// Begin Following Line
 
-	follow_the_intersections();
+	
 
 	//maze_navigation();	// Navigate the maze.
 
