@@ -127,7 +127,6 @@ void follow_the_line(){
 		if(num_of_white>310){
 			set_motor(1, 0);
 			set_motor(2, 0);
-			follow_the_intersections();
 			return;
 		}
 		if(seeLine){
@@ -148,8 +147,11 @@ void follow_the_line(){
 }
 
 
+
+
 void follow_the_intersections(){
 	set_motor(1, 50);
+	set_motor(2, -50);
 	sleep(6, 0);
 
 	set_motor(1, 0);
@@ -157,6 +159,9 @@ void follow_the_intersections(){
 	return;
 
 }
+
+
+
 
 void maze_navigation(){
 	//Define local variables
@@ -227,9 +232,9 @@ int main(){
 
 	follow_the_line();	// Begin Following Line
 
-	
+	follow_the_intersections();
 
-	maze_navigation();	// Navigate the maze.
+	//maze_navigation();	// Navigate the maze.
 
 
 	//Emergency Stop
