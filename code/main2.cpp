@@ -367,7 +367,7 @@ int main(){
 
 //	network();			// Open Gate
 
-	//follow_the_line();
+	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
 
 
