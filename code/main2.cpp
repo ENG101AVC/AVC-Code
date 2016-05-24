@@ -275,14 +275,14 @@ void Complete_until_maze(){
 			set_motor(2, 50-proportional_signal_previous*7);
 		}
 		
-		if(average_error(60) >= threshold) 
+		if(average_error(40) >= threshold) 
 		{
 			leftpixel = 1;
 		}
 		else{
 			leftpixel = 0;
 		}
-		if(average_error(180) >= threshold) 
+		if(average_error(200) >= threshold) 
 		{
 			rightpixel = 1;
 		}	
