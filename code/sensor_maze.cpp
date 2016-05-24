@@ -18,6 +18,7 @@ void navigate_maze(){
 	int left; 
 	int right;
 	int front;
+	String currWall = left;
 	
 	int select_IO(0, 1);
 
@@ -29,29 +30,30 @@ void navigate_maze(){
 		//front = read_analog(2);
 		front = read_digital(0);
 		
-		if(front < /*value*/)
+		if(currWall == "left")
 		{
-			if (left > 250)
+			if(front > 1)
 			{
-				set_motor(1, -45);
-				set_motor(2, 45);	
-			}
-			else if(right > 350){
-				set_motor(1, 45);
-				set_motor(2, -45);	
+				set_motor(1,50);
+				set_motor(2,50);
 			}
 			else{
-				set_motor(1, -80);
-				set_motor(2, -80);	
+				set_motor(1,50);
+				set_motor(2,-50);
 			}
 		}
 		else
 		{
-			set_motor(1, 80);
-			set_motor(2, 80);
+			if(front > 1)
+			{
+				set_motor(1,50);
+				set_motor(2,50);
+			}
+			else{
+				set_motor(1,-50);
+				set_motor(2,50);
+			}	
 		}
-		
-		Sleep(0,500000);
 		
 		testClock++;
 	}
