@@ -213,7 +213,7 @@ void Complete_until_maze(){
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
 	int proportional_signal_previous;
 	int num_of_white = 0;
-	
+	int leftpixel = 0;
 
 	while(testClock < 1500){
 
@@ -246,10 +246,19 @@ void Complete_until_maze(){
 		printf("Proportional Signal: %d\n", proportional_signal);
 		printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(num_of_white>=319){
-			set_motor(1, -35);
-			set_motor(2, 35);
-			Sleep(0,500000);
+		if(num_of_white<50){
+			if(leftpixel == 1)
+			{
+				set_motor(1, -35);
+				set_motor(2, 35);
+			}
+			else
+			{
+				set_motor(1, 35);
+				set_motor(2, -35);
+			}
+			Sleep(1,0);
+			
 		}
 		else if(seeLine){
 			set_motor(1, 35+proportional_signal);
@@ -260,6 +269,12 @@ void Complete_until_maze(){
 			set_motor(1, 50+proportional_signal_previous*7);
 			set_motor(2, 50-proportional_signal_previous*7);
 		}
+		
+		if(average_error(60) >= threshold) 
+		{
+			leftpixel = 1;
+		}
+			
 
 	testClock++;
 	}
