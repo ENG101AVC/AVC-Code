@@ -244,7 +244,7 @@ void Complete_until_maze(){
 		follow_the_line();
 		make_decision();
 		num_of_decisions++;
-		printf("Decision Number")
+		printf("Decision Number");
 	}
 	return;
 
