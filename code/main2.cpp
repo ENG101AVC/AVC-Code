@@ -237,13 +237,15 @@ void follow_the_line(){
 
 void Complete_until_maze(){
 	num_of_decisions = 0;
-	while(num_of_decisions<2){
-		follow_the_line();
-		set_motor(1, 50);
-		set_motor(2, 0);
-		set_motor(1, 30);
-		set_motor(2, 30);
-		//make_decision();
+	while(num_of_decisions<4){
+		if(num_of_decisions > 0){
+			follow_the_line();
+			set_motor(1, 50);
+			set_motor(2, 0);
+			set_motor(1, 30);
+			set_motor(2, 30);
+		}
+		
 		num_of_decisions++;
 		printf("---------------- Decision Number: %d\n", num_of_decisions);
 	}
