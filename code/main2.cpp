@@ -249,13 +249,13 @@ void Complete_until_maze(){
 		if(num_of_white<50){
 			if(leftpixel == 1)
 			{
-				set_motor(1, -50);
-				set_motor(2, 50);
+				set_motor(1, -45);
+				set_motor(2, 45);
 			}
 			else
 			{
-				set_motor(1, 50);
-				set_motor(2, -50);
+				set_motor(1, 45);
+				set_motor(2, -45);
 			}
 			Sleep(1,0);
 			
