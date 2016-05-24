@@ -166,8 +166,9 @@ void follow_the_line(){
 		printf("Number of White Pixels: %d\n", num_of_white);
 
 		if(num_of_white>=319){
-			set_motor(1, 0);
-			set_motor(2, 0);
+			set_motor(1, 30);
+			set_motor(2, 30);
+			Sleep(1,0);
 			return;
 		}
 		else if(seeLine){
@@ -261,9 +262,12 @@ void Complete_until_maze(){
 			
 		}
 		if(num_of_white>=310){
+			set_motor(1, 30);
+			set_motor(2, 30);
+			Sleep(1,0);
 			set_motor(1, -40);
 			set_motor(2, 40);
-			Sleep(1,0);
+			Sleep(0,600000);
 			
 		}
 		else if(seeLine){
