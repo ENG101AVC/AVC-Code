@@ -164,12 +164,13 @@ void follow_the_line(){
 		//printf("Current Error: %d\n", current_error);
 		//printf("Proportional Signal: %d\n", proportional_signal);
 		//printf("Number of White Pixels: %d\n", num_of_white);
+		printf("%d ", num_of_white);
 
-		if(num_of_white>=319){
+		if(num_of_white>=310){
+			printf("SWITCHING TO TURNING CODE\n");
 			set_motor(1, 30);
 			set_motor(2, 30);
 			Sleep(1,0);
-			printf("SWITCHING TO TURNING CODE\n");
 			return;
 		}
 		else if(seeLine){
