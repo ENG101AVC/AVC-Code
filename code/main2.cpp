@@ -161,14 +161,15 @@ void follow_the_line(){
 		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
 
 		// Print checks:
-		printf("Current Error: %d\n", current_error);
-		printf("Proportional Signal: %d\n", proportional_signal);
-		printf("Number of White Pixels: %d\n", num_of_white);
+		//printf("Current Error: %d\n", current_error);
+		//printf("Proportional Signal: %d\n", proportional_signal);
+		//printf("Number of White Pixels: %d\n", num_of_white);
 
 		if(num_of_white>=319){
 			set_motor(1, 30);
 			set_motor(2, 30);
 			Sleep(1,0);
+			printf("SWITCHING TO TURNING CODE\n");
 			return;
 		}
 		else if(seeLine){
@@ -243,9 +244,9 @@ void Complete_until_maze(){
 		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
 
 		// Print checks:
-		printf("Current Error: %d\n", current_error);
-		printf("Proportional Signal: %d\n", proportional_signal);
-		printf("Number of White Pixels: %d\n", num_of_white);
+		//printf("Current Error: %d\n", current_error);
+		//printf("Proportional Signal: %d\n", proportional_signal);
+		//printf("Number of White Pixels: %d\n", num_of_white);
 
 		if(num_of_white<50){
 			if(leftpixel == 1)
