@@ -240,8 +240,8 @@ void Complete_until_maze(){
 	while(num_of_decisions<4){
 		if(num_of_decisions > 0){
 			follow_the_line();
-			set_motor(1, 50);
-			set_motor(2, 0);
+			set_motor(2, 50);
+			set_motor(1, 0);
 			set_motor(1, 30);
 			set_motor(2, 30);
 		}
