@@ -168,8 +168,8 @@ void follow_the_line(){
 
 		if(num_of_white>=280){
 			printf("SWITCHING TO TURNING CODE\n");
-			set_motor(1, 30);
-			set_motor(2, 30);
+			set_motor(1, 35);
+			set_motor(2, 35);
 			Sleep(1,0);
 			return;
 		}
@@ -217,13 +217,13 @@ void Complete_until_maze(){
 	int proportional_signal_previous;
 	int num_of_white = 0;
 	int leftpixel = 0;
+	int threshold = determine_average();
 
 	while(testClock < 250){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
 		num_of_white = 0;
-		int threshold = determine_average();
 
 		take_picture();
 
@@ -292,6 +292,12 @@ void Complete_until_maze(){
 		}
 		else{
 			leftpixel = 0;
+		}
+		
+		if(get_pixel(160, 120, 0) > 200)
+		{
+			printf("SWITCHING TO WALLED CODE\n");
+			return;
 		}
 		
 	testClock++;
