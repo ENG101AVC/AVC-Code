@@ -286,7 +286,7 @@ void Complete_until_maze(){
 			set_motor(2, 50-proportional_signal_previous*7);
 		}
 		
-		if(average_error(60) >= threshold) 
+		if(average_error(80) >= threshold) 
 		{
 			leftpixel = 1;
 		}
@@ -294,9 +294,10 @@ void Complete_until_maze(){
 			leftpixel = 0;
 		}
 		
-		if(get_pixel(160, 120, 0) > 235)
+		int redAvr = (get_pixel(100, 120, 0) + get_pixel(160, 120, 0) + get_pixel(220, 120, 0))/3;
+		if(gredAvr > 200)
 		{
-			printf("SWITCHING TO WALLED CODE, Red: %d\n",get_pixel(160, 120, 0));
+			printf("SWITCHING TO WALLED CODE, Red: %d\n",redAvr);
 			return;
 		}
 		
