@@ -294,9 +294,9 @@ void Complete_until_maze(){
 			leftpixel = 0;
 		}
 		
-		if(get_pixel(160, 120, 0) > 220)
+		if(get_pixel(160, 120, 0) > 235)
 		{
-			printf("SWITCHING TO WALLED CODE\n");
+			printf("SWITCHING TO WALLED CODE, Red: %d\n",get_pixel(160, 120, 0));
 			return;
 		}
 		
