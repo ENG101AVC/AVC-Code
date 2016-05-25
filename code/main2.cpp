@@ -296,7 +296,7 @@ void Complete_until_maze(){
 		
 		int redAvr = (get_pixel(120, 120, 0) + get_pixel(160, 120, 0) + get_pixel(200, 120, 0))/3;
 		printf("Red: %d\n",redAvr);
-		if(redAvr > 150)
+		if(redAvr > 200)
 		{
 			printf("SWITCHING TO WALLED CODE, Red: %d\n",redAvr);
 			return;
