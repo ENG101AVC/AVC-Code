@@ -219,7 +219,7 @@ void Complete_until_maze(){
 	int leftpixel = 0;
 	int threshold = determine_average();
 
-	while(testClock < 250){
+	while(testClock < 1500){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
