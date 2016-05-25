@@ -134,7 +134,7 @@ void follow_the_line(){
 	int num_of_white = 0;
 	
 
-	while(testClock < 1500){
+	while(true){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
@@ -219,7 +219,7 @@ void Complete_until_maze(){
 	int leftpixel = 0;
 	int threshold = determine_average();
 
-	while(testClock < 1500){
+	while(true){
 
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
@@ -294,7 +294,7 @@ void Complete_until_maze(){
 			leftpixel = 0;
 		}
 		
-		if(get_pixel(160, 120, 0) > 190)
+		if(get_pixel(160, 120, 0) > 220)
 		{
 			printf("SWITCHING TO WALLED CODE\n");
 			return;
