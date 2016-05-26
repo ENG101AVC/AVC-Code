@@ -336,10 +336,10 @@ void Complete_until_maze(){ //Experimental
 		//printf("Number of White Pixels: %d\n", num_of_white);
 		
 		//Turn
-		if(num_of_white > 160)
+		if(num_of_white > 170)
 		{
 		Sleep(0,200000);
-		if(average_error(60) >= threshold) 
+		if(average_error(0) >= threshold) 
 		{
 			leftpixel = 1;
 		}
@@ -347,7 +347,7 @@ void Complete_until_maze(){ //Experimental
 			leftpixel = 0;
 		}
 		
-		if(average_error(260) >= threshold) 
+		if(average_error(320) >= threshold) 
 		{
 			rightpixel = 1;
 		}
