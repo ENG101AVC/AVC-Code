@@ -340,8 +340,11 @@ void Complete_until_maze(){ //Experimental
 		//printf("Current Error: %d\n", current_error);
 		//printf("Proportional Signal: %d\n", proportional_signal);
 		//printf("Number of White Pixels: %d\n", num_of_white);
-
-		//Checks Pixels at this position
+		
+		//Turn
+		if(num_of_white > 160)
+		{
+		Sleep(0,250000);
 		if(average_error(80) >= threshold) 
 		{
 			leftpixel = 1;
@@ -365,10 +368,6 @@ void Complete_until_maze(){ //Experimental
 		else{
 			frontpixel = 0;
 		}
-		
-		if(num_of_white > 160)
-		{
-			turn_Rpi(3);
 			if(leftpixel == 1 && rightpixel == 1 && frontpixel == 0){
 				printf("Bend: T, Turn: Left\n");
 				turn_Rpi(2);
