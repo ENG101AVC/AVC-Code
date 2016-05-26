@@ -69,30 +69,28 @@ void turn_Rpi(int direction){
 		set_motor(1, 40);
 		set_motor(2, -40);
 		Sleep(1, 0);
-		set_motor(1, 0);
-		set_motor(2, 0);
 	}
 
 	else if(direction == 1){
 		// 90 Degree clockwise
-		set_motor(40);
-		set_motor(2, 40);
-		Sleep(0, 500000);
+		set_motor(1, 30);
+		set_motor(2, 30);
+		Sleep(0, 250000);
 		
 		set_motor(1, 40);
 		set_motor(2, -40);
-		Sleep(1, 0);
+		Sleep(0, 900000);
 	}
 
 	else if(direction == 2){
 		// 90 Degree antclockwise
-		set_motor(1, 40);
-		set_motor(2, 40);
-		Sleep(0, 500000);
+		set_motor(1, 30);
+		set_motor(2, 30);
+		Sleep(0, 250000);
 		
 		set_motor(1, -40);
 		set_motor(2, 40);
-		Sleep(1, 0);
+		Sleep(0, 900000);
 	}
 	else if(direction == 3){
 		// Forwards
