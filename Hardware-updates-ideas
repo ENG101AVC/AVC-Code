@@ -25,6 +25,14 @@ Printed rim for battery holder which is held in place by a two part battery clip
 and screws together at the top. The rim functions well, however the clips take a long time to detach and are quite cumbersome 
 so will hopefully be rethought. (In the meantime they function perfectly well).
 
+Designed and printed new clips, they are easier to use but are not as secure, as such the old clips will continue to be used.
+For quadrant 4 the robot will use 2x medium range analogue sensors, on the left and right sides and a short range digital sensor 
+mounted on front of the camera.
+The side sensors have been bolted to the chasse with existing plastic right angle brackets.
+The front facing sensor will need a new 3d printed holder.
+An issue arose due to the length of the sensor wires. This has been solved temporarily by wrapping the excess around the Rpi 
+spacers, this stops the wires from getting in the way but should probably be tidied further.
+
 
 Ideas:
 Possible case to put over robot to hide parts and make it aesthetically pleasing designs include;
