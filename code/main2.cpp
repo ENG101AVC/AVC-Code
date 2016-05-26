@@ -97,8 +97,8 @@ void turn_Rpi(int direction){
 	else if(direction == 3){
 		// Forwards
 		set_motor(1, 40);
-		set_motor(40);
-		Sleep(0, 800000);
+		set_motor(2, 40);
+		Sleep(0, 600000);
 	}
 return;
 }
@@ -171,7 +171,7 @@ void follow_the_line(){
 		//printf("Proportional Signal: %d\n", proportional_signal);
 		//printf("Number of White Pixels: %d\n", num_of_white);
 
-		if(num_of_white>=310){
+		if(num_of_white>=300){
 			printf("SWITCHING TO TURNING CODE\n");
 			set_motor(1, 40);
 			set_motor(2, 40);
