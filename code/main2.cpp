@@ -336,24 +336,20 @@ void Complete_until_maze(){ //Experimental
 		//printf("Number of White Pixels: %d\n", num_of_white);
 		
 		//Turn
-		if(num_of_white > 170)
-		{
-		Sleep(0,200000);
-		if(average_error(0) >= threshold) 
-		{
-			leftpixel = 1;
-		}
-		else{
-			leftpixel = 0;
-		}
+		if(num_of_white > 160){
+			if(average_error(0) >= threshold){
+				leftpixel = 1;
+			}
+			else{
+				leftpixel = 0;
+			}
 		
-		if(average_error(320) >= threshold) 
-		{
-			rightpixel = 1;
-		}
-		else{
-			rightpixel = 0;
-		}
+			if(average_error(320) >= threshold) {
+				rightpixel = 1;
+			}
+			else{
+				rightpixel = 0;
+			}
 			if(leftpixel == 1 && rightpixel == 1 && num_of_white>318){
 				printf("Bend: T, Turn: Left\n");
 				set_motor(1, 30);
@@ -384,8 +380,8 @@ void Complete_until_maze(){ //Experimental
 			}
 			
 		}
-		else if(num_of_white < 10 && proportional_signal_previous<2)
-		{
+		
+		else if(num_of_white < 10 && proportional_signal_previous<2){
 			turn_Rpi(0);
 			printf("Bend: X, Turn: 180\n");
 		}
