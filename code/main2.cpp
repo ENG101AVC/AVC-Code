@@ -356,16 +356,22 @@ void Complete_until_maze(){ //Experimental
 		}
 			if(leftpixel == 1 && rightpixel == 1){
 				printf("Bend: T, Turn: Left\n");
-				turn_Rpi(2);
+				set_motor(1, -40);
+				set_motor(2, 40);
+				Sleep(0, 900000);
 			}
 			else if(leftpixel == 1 && rightpixel == 0){
 				printf("Bend: L, Turn: Left\n");
-				turn_Rpi(2);
+				set_motor(1, -40);
+				set_motor(2, 40);
+				Sleep(0, 900000);
 			}
 
 			else if(leftpixel == 0 && rightpixel == 1){
 				printf("Bend: L, Turn: Right\n");
-				turn_Rpi(1);
+				set_motor(1, 40);
+				set_motor(2, -40);
+				Sleep(0, 900000);
 			}
 			
 		}
