@@ -370,7 +370,7 @@ void Complete_until_maze(){ //Experimental
 		if(num_of_white > 160)
 		{
 			turn_Rpi(3);
-			if(leftpixel == 1 && rightpixel Sleep(0,500000);== 1 && frontpixel == 0){
+			if(leftpixel == 1 && rightpixel == 1 && frontpixel == 0){
 				printf("Bend: T, Turn: Left\n");
 				turn_Rpi(2);
 			}
