@@ -66,8 +66,8 @@ int average_error(int i){
 void turn_Rpi(int direction){			
 	if(direction == 0){
 		// 180 Degree Turn
-		set_motor(1, 50);
-		set_motor(2, -50);
+		set_motor(1, 45);
+		set_motor(2, -45);
 		Sleep(1, 0);
 		set_motor(1, 0);
 		set_motor(2, 0);
@@ -76,8 +76,8 @@ void turn_Rpi(int direction){
 	else if(direction == 1){
 		// 90 Degree clockwise
 		
-		set_motor(1, 50);
-		set_motor(2, -50);
+		set_motor(1, 45);
+		set_motor(2, -45);
 		Sleep(1, 0);
 
 		set_motor(1, 0);
@@ -87,8 +87,8 @@ void turn_Rpi(int direction){
 	else if(direction == 2){
 		// 90 Degree antclockwise
 
-		set_motor(1, -50);
-		set_motor(2, 50);
+		set_motor(1, -45);
+		set_motor(2, 45);
 		Sleep(1, 0);
 
 		set_motor(1, 0);
@@ -96,8 +96,8 @@ void turn_Rpi(int direction){
 	}
 	else if(direction == 3){
 		// Forwards
-		set_motor(1, 30);
-		set_motor(2, 30);
+		set_motor(1, 45);
+		set_motor(2, 45);
 		Sleep(1, 0);
 
 		set_motor(1, 0);
@@ -173,13 +173,12 @@ void follow_the_line(){
 		//printf("Current Error: %d\n", current_error);
 		//printf("Proportional Signal: %d\n", proportional_signal);
 		//printf("Number of White Pixels: %d\n", num_of_white);
-		printf("%d\n", num_of_white);
 
 		if(num_of_white>=280){
 			printf("SWITCHING TO TURNING CODE\n");
-			set_motor(1, 35);
-			set_motor(2, 35);
-			Sleep(1,0);
+			set_motor(1, 40);
+			set_motor(2, 40);
+			Sleep(1,500000);
 			return;
 		}
 		else if(seeLine){
