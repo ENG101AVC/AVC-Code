@@ -303,6 +303,7 @@ void Complete_until_maze(){ //Experimental
 	int num_of_white = 0;
 	int leftpixel = 0;
 	int rightpixel = 0;
+	int frontpixel = 0;
 	int threshold = determine_average();
 
 	while(true){
@@ -350,40 +351,34 @@ void Complete_until_maze(){ //Experimental
 			else{
 				rightpixel = 0;
 			}
-			if(leftpixel == 1 && rightpixel == 1 && num_of_white>318){
-				printf("Bend: T, Turn: Left\n");
-				set_motor(1, 30);
-				set_motor(2, 30);
-				Sleep(0, 300000);
-				set_motor(1, -40);
-				set_motor(2, 40);
-				Sleep(0, 600000);
+			if(get_pixel(160, 0, 3); >= threshold) {
+				frontpixel = 1;
 			}
-			else if(leftpixel == 1 && rightpixel == 0){
-				printf("Bend: L, Turn: Left\n");
-				set_motor(1, 30);
-				set_motor(2, 30);
-				Sleep(0, 300000);
-				set_motor(1, -40);
-				set_motor(2, 40);
-				Sleep(0, 600000);
-			}
-
-			else if(leftpixel == 0 && rightpixel == 1){
-				printf("Bend: L, Turn: Right\n");
-				set_motor(1, 30);
-				set_motor(2, 30);
-				Sleep(0, 300000);
-				set_motor(1, 40);
-				set_motor(2, -40);
-				Sleep(0, 600000);
+			else{
+				frontpixel = 0;
 			}
 			
-		}
-		
-		else if(num_of_white < 10 && proportional_signal_previous<2){
-			turn_Rpi(0);
-			printf("Bend: X, Turn: 180\n");
+			
+			if(leftpixel == 1 && rightpixel == 1 && num_of_white>318){
+				printf("Bend: T, Turn: Left\n");
+				set_motor(1, -35);
+				set_motor(2, 35);
+				Sleep(0,300000);
+			}
+			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
+				printf("Bend: L, Turn: Left\n");
+				set_motor(1, -35);
+				set_motor(2, 35);
+				Sleep(0,300000);
+			}
+
+			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 0){
+				printf("Bend: L, Turn: Right\n");
+				set_motor(1, 35);
+				set_motor(2, -35);
+				Sleep(0,300000);
+			}
+			
 		}
 		else if(seeLine){
 			set_motor(1, 35+proportional_signal);
