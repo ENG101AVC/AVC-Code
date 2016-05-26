@@ -75,33 +75,30 @@ void turn_Rpi(int direction){
 
 	else if(direction == 1){
 		// 90 Degree clockwise
+		set_motor(1, 45);
+		set_motor(2, 45);
+		Sleep(0, 500000);
 		
 		set_motor(1, 45);
 		set_motor(2, -45);
 		Sleep(1, 0);
-
-		set_motor(1, 0);
-		set_motor(2, 0);
 	}
 
 	else if(direction == 2){
 		// 90 Degree antclockwise
-
+		set_motor(1, 45);
+		set_motor(2, 45);
+		Sleep(0, 500000);
+		
 		set_motor(1, -45);
 		set_motor(2, 45);
 		Sleep(1, 0);
-
-		set_motor(1, 0);
-		set_motor(2, 0);
 	}
 	else if(direction == 3){
 		// Forwards
-		set_motor(1, 35);
-		set_motor(2, 35);
-		Sleep(1, 0);
-
-		set_motor(1, 0);
-		set_motor(2, 0);
+		set_motor(1, 40);
+		set_motor(40);
+		Sleep(0, 800000);
 	}
 return;
 }
@@ -344,7 +341,7 @@ void Complete_until_maze(){ //Experimental
 		//Turn
 		if(num_of_white > 160)
 		{
-		Sleep(0,250000);
+		Sleep(0,100000);
 		if(average_error(80) >= threshold) 
 		{
 			leftpixel = 1;
