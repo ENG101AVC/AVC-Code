@@ -75,7 +75,7 @@ void turn_Rpi(int direction){
 		// 90 Degree clockwise
 		set_motor(1, 30);
 		set_motor(2, 30);
-		Sleep(0, 250000);
+		Sleep(0, 350000);
 		
 		set_motor(1, 40);
 		set_motor(2, -40);
@@ -86,7 +86,7 @@ void turn_Rpi(int direction){
 		// 90 Degree antclockwise
 		set_motor(1, 30);
 		set_motor(2, 30);
-		Sleep(0, 250000);
+		Sleep(0, 350000);
 		
 		set_motor(1, -40);
 		set_motor(2, 40);
