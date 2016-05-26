@@ -351,7 +351,7 @@ void Complete_until_maze(){ //Experimental
 			else{
 				rightpixel = 0;
 			}
-			if(get_pixel(160, 0, 3); >= threshold) {
+			if(get_pixel(160, 0, 3) >= threshold) {
 				frontpixel = 1;
 			}
 			else{
