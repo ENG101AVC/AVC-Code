@@ -141,6 +141,7 @@ void follow_the_line(){
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
 	int proportional_signal_previous;
 	int num_of_white = 0;
+	int threshold = determine_average(); //PUT THIS BACK IN LOOP IF BREAKS QUAD 2
 	
 
 	while(true){
@@ -148,8 +149,7 @@ void follow_the_line(){
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
 		num_of_white = 0;
-		int threshold = determine_average();
-
+		
 		take_picture();
 
 		for(int i=0; i<320; i++){
