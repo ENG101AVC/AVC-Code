@@ -66,8 +66,8 @@ int average_error(int i){
 void turn_Rpi(int direction){			
 	if(direction == 0){
 		// 180 Degree Turn
-		set_motor(1, 45);
-		set_motor(2, -45);
+		set_motor(1, 40);
+		set_motor(2, -40);
 		Sleep(1, 0);
 		set_motor(1, 0);
 		set_motor(2, 0);
@@ -75,30 +75,30 @@ void turn_Rpi(int direction){
 
 	else if(direction == 1){
 		// 90 Degree clockwise
-		set_motor(1, 45);
-		set_motor(2, 45);
+		set_motor(40);
+		set_motor(2, 40);
 		Sleep(0, 500000);
 		
-		set_motor(1, 45);
-		set_motor(2, -45);
+		set_motor(1, 40);
+		set_motor(2, -40);
 		Sleep(1, 0);
 	}
 
 	else if(direction == 2){
 		// 90 Degree antclockwise
-		set_motor(1, 45);
-		set_motor(2, 45);
+		set_motor(1, 40);
+		set_motor(2, 40);
 		Sleep(0, 500000);
 		
-		set_motor(1, -45);
-		set_motor(2, 45);
+		set_motor(1, -40);
+		set_motor(2, 40);
 		Sleep(1, 0);
 	}
 	else if(direction == 3){
 		// Forwards
 		set_motor(1, 40);
 		set_motor(2, 40);
-		Sleep(0, 600000);
+		Sleep(0, 300000);
 	}
 return;
 }
@@ -175,7 +175,7 @@ void follow_the_line(){
 			printf("SWITCHING TO TURNING CODE\n");
 			set_motor(1, 40);
 			set_motor(2, 40);
-			Sleep(1,500000);
+			Sleep(1,400000);
 			return;
 		}
 		else if(seeLine){
@@ -341,7 +341,7 @@ void Complete_until_maze(){ //Experimental
 		//Turn
 		if(num_of_white > 160)
 		{
-		Sleep(0,100000);
+		Sleep(0,200000);
 		if(average_error(80) >= threshold) 
 		{
 			leftpixel = 1;
@@ -357,8 +357,8 @@ void Complete_until_maze(){ //Experimental
 		else{
 			rightpixel = 0;
 		}
-		
-		if(get_pixel(160, 10, 3) >= threshold) 
+		Sleep(0,100000);
+		if(get_pixel(160, 0, 3) >= threshold) 
 		{
 			frontpixel = 1;
 		}
