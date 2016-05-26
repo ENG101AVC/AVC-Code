@@ -406,11 +406,9 @@ void Complete_until_maze(){ //Experimental
 			proportional_signal_previous = proportional_signal;
 		}
 		
-		int redAvr = (get_pixel(120, 120, 0) + get_pixel(160, 120, 0) + get_pixel(200, 120, 0))/3;
-		printf("Red: %d\n",redAvr);
-		if(redAvr > 160 && read_analog(0) < 300 && read_analog(1) < 300)  //If on Red Square (Maze Detector)
+		if(read_analog(0) < 300 && read_analog(1) < 300)  //If on Red Square (Maze Detector)
 		{
-			printf("SWITCHING TO WALLED CODE, Red: %d\n",redAvr);
+			printf("SWITCHING TO WALLED CODE\n");
 			return;
 		}
 		
