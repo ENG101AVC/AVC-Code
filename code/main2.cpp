@@ -426,7 +426,7 @@ int main(){
 			//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 
 //	network();			// Open Gate
-	//Sleep(5,0);  //Walking to Track
+	Sleep(5,0);  //Walking to Track
 	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
 
