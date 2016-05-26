@@ -195,7 +195,7 @@ void follow_the_line(){
 
 
 
-
+/*
 void Complete_until_maze(){
 	
 	//Define local variables
@@ -295,7 +295,7 @@ void Complete_until_maze(){
 	return;
 
 }
-/*
+*/
 void Complete_until_maze(){ //Experimental
 	//Define local variables
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
@@ -358,24 +358,24 @@ void Complete_until_maze(){ //Experimental
 				printf("Bend: T, Turn: Left\n");
 				set_motor(1, -40);
 				set_motor(2, 40);
-				Sleep(0, 900000);
+				Sleep(0, 600000);
 			}
 			else if(leftpixel == 1 && rightpixel == 0){
 				printf("Bend: L, Turn: Left\n");
 				set_motor(1, -40);
 				set_motor(2, 40);
-				Sleep(0, 900000);
+				Sleep(0, 600000);
 			}
 
 			else if(leftpixel == 0 && rightpixel == 1){
 				printf("Bend: L, Turn: Right\n");
 				set_motor(1, 40);
 				set_motor(2, -40);
-				Sleep(0, 900000);
+				Sleep(0, 600000);
 			}
 			
 		}
-		else if(num_of_white < 40)
+		else if(num_of_white < 40 && proportional_signal_previous<4)
 		{
 			turn_Rpi(0);
 			printf("Bend: X, Turn: 180\n");
@@ -399,7 +399,7 @@ void Complete_until_maze(){ //Experimental
 	return;
 
 }
-*/
+
 // This is the Main() method.  Controls the holistic behaviour or the RPi.
 
 int main(){
