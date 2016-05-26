@@ -354,14 +354,20 @@ void Complete_until_maze(){ //Experimental
 		else{
 			rightpixel = 0;
 		}
-			if(leftpixel == 1 && rightpixel == 1){
+			if(leftpixel == 1 && rightpixel == 1 && num_of_white>318){
 				printf("Bend: T, Turn: Left\n");
+				set_motor(1, 30);
+				set_motor(2, 30);
+				Sleep(0, 300000);
 				set_motor(1, -40);
 				set_motor(2, 40);
 				Sleep(0, 600000);
 			}
 			else if(leftpixel == 1 && rightpixel == 0){
 				printf("Bend: L, Turn: Left\n");
+				set_motor(1, 30);
+				set_motor(2, 30);
+				Sleep(0, 300000);
 				set_motor(1, -40);
 				set_motor(2, 40);
 				Sleep(0, 600000);
@@ -369,13 +375,16 @@ void Complete_until_maze(){ //Experimental
 
 			else if(leftpixel == 0 && rightpixel == 1){
 				printf("Bend: L, Turn: Right\n");
+				set_motor(1, 30);
+				set_motor(2, 30);
+				Sleep(0, 300000);
 				set_motor(1, 40);
 				set_motor(2, -40);
 				Sleep(0, 600000);
 			}
 			
 		}
-		else if(num_of_white < 40 && proportional_signal_previous<4)
+		else if(num_of_white < 10 && proportional_signal_previous<2)
 		{
 			turn_Rpi(0);
 			printf("Bend: X, Turn: 180\n");
