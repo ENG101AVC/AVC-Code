@@ -303,7 +303,6 @@ void Complete_until_maze(){ //Experimental
 	int num_of_white = 0;
 	int leftpixel = 0;
 	int rightpixel = 0;
-	int frontpixel = 0;
 	int threshold = determine_average();
 
 	while(true){
@@ -340,7 +339,7 @@ void Complete_until_maze(){ //Experimental
 		if(num_of_white > 160)
 		{
 		Sleep(0,200000);
-		if(average_error(80) >= threshold) 
+		if(average_error(60) >= threshold) 
 		{
 			leftpixel = 1;
 		}
@@ -348,44 +347,25 @@ void Complete_until_maze(){ //Experimental
 			leftpixel = 0;
 		}
 		
-		if(average_error(240) >= threshold) 
+		if(average_error(260) >= threshold) 
 		{
 			rightpixel = 1;
 		}
 		else{
 			rightpixel = 0;
 		}
-		Sleep(0,100000);
-		if(get_pixel(160, 0, 3) >= threshold) 
-		{
-			frontpixel = 1;
-		}
-		else{
-			frontpixel = 0;
-		}
-			if(leftpixel == 1 && rightpixel == 1 && frontpixel == 0){
+			if(leftpixel == 1 && rightpixel == 1){
 				printf("Bend: T, Turn: Left\n");
 				turn_Rpi(2);
 			}
-			//else if(leftpixel == 1 && rightpixel == 1 && frontpixel == 1){
-			//	printf("Bend: +, Turn: None\n");
-			//	turn_Rpi(3);
-			//}
-			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
+			else if(leftpixel == 1 && rightpixel == 0){
 				printf("Bend: L, Turn: Left\n");
 				turn_Rpi(2);
 			}
-			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 1){
-				printf("Bend: -|, Turn: Left\n");
-				turn_Rpi(1);
-			}
-			else if(leftpixel == 0 && rightpixel == 1  && frontpixel == 0){
+
+			else if(leftpixel == 0 && rightpixel == 1){
 				printf("Bend: L, Turn: Right\n");
 				turn_Rpi(1);
-			}
-			else if(leftpixel == 0 && rightpixel == 1  && frontpixel == 1){
-				printf("Bend: |-, Turn: None\n");
-				turn_Rpi(3);
 			}
 			
 		}
