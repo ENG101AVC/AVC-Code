@@ -66,8 +66,8 @@ int average_error(int i){
 void turn_Rpi(int direction){			
 	if(direction == 0){
 		// 180 Degree Turn
-		set_motor(1, 30);
-		set_motor(2, -30);
+		set_motor(1, 50);
+		set_motor(2, -50);
 		Sleep(1, 0);
 		set_motor(1, 0);
 		set_motor(2, 0);
@@ -76,8 +76,8 @@ void turn_Rpi(int direction){
 	else if(direction == 1){
 		// 90 Degree clockwise
 		
-		set_motor(1, 30);
-		set_motor(2, -30);
+		set_motor(1, 50);
+		set_motor(2, -50);
 		Sleep(1, 0);
 
 		set_motor(1, 0);
@@ -87,8 +87,8 @@ void turn_Rpi(int direction){
 	else if(direction == 2){
 		// 90 Degree antclockwise
 
-		set_motor(1, -30);
-		set_motor(2, 30);
+		set_motor(1, -50);
+		set_motor(2, 50);
 		Sleep(1, 0);
 
 		set_motor(1, 0);
