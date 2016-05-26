@@ -196,7 +196,7 @@ void follow_the_line(){
 
 
 
-/*void Complete_until_maze(){
+void Complete_until_maze(){
 	
 	//Define local variables
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
@@ -294,8 +294,8 @@ void follow_the_line(){
 	set_motor(2, 0);
 	return;
 
-}*/
-
+}
+/*
 void Complete_until_maze(){ //Experimental
 	//Define local variables
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
@@ -399,7 +399,7 @@ void Complete_until_maze(){ //Experimental
 	return;
 
 }
-
+*/
 // This is the Main() method.  Controls the holistic behaviour or the RPi.
 
 int main(){
