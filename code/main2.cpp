@@ -96,9 +96,9 @@ void turn_Rpi(int direction){
 	}
 	else if(direction == 3){
 		// Forwards
-		set_motor(1, 45);
-		set_motor(2, 45);
-		Sleep(1, 500000);
+		set_motor(1, 30);
+		set_motor(2, 30);
+		Sleep(1, 0);
 
 		set_motor(1, 0);
 		set_motor(2, 0);
