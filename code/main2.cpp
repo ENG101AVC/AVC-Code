@@ -62,56 +62,6 @@ int average_error(int i){
 	return average_error;
 }
 
-
-void turn_Rpi(int direction){			
-	if(direction == 0){
-		// 180 Degree Turn
-		set_motor(1, 40);
-		set_motor(2, -40);
-		Sleep(1, 0);
-	}
-
-	else if(direction == 1){
-		// 90 Degree clockwise
-		set_motor(1, 30);
-		set_motor(2, 30);
-		Sleep(0, 350000);
-		
-		set_motor(1, 40);
-		set_motor(2, -40);
-		Sleep(0, 900000);
-	}
-
-	else if(direction == 2){
-		// 90 Degree antclockwise
-		set_motor(1, 30);
-		set_motor(2, 30);
-		Sleep(0, 350000);
-		
-		set_motor(1, -40);
-		set_motor(2, 40);
-		Sleep(0, 900000);
-	}
-	else if(direction == 3){
-		// Forwards
-		set_motor(1, 40);
-		set_motor(2, 40);
-		Sleep(0, 300000);
-	}
-return;
-}
-
-void short_forward(){
-		set_motor(1, 30);
-		set_motor(2, 30);
-		Sleep(1, 0);
-}
-/* 		The Following Methods Drive the RPi		*/
-
-
-
-
-
 // This is the network() method.  Opens the gate.
 
 void network(){
@@ -136,7 +86,7 @@ void follow_the_line(){
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
 	int proportional_signal_previous;
 	int num_of_white = 0;
-	int threshold = determine_average(); //PUT THIS BACK IN LOOP IF BREAKS QUAD 2
+	int threshold = determine_average(); 
 	
 
 	while(true){
@@ -163,11 +113,6 @@ void follow_the_line(){
 		}
 
 		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
-
-		// Print checks:
-		//printf("Current Error: %d\n", current_error);
-		//printf("Proportional Signal: %d\n", proportional_signal);
-		//printf("Number of White Pixels: %d\n", num_of_white);
 
 		if(num_of_white>=310){
 			printf("SWITCHING TO TURNING CODE\n");
@@ -193,109 +138,6 @@ void follow_the_line(){
 	return;
 }
 
-
-
-/*
-void Complete_until_maze(){
-	
-	//Define local variables
-	int testClock = 0;							// For testing the RPi.  Can terminate movement.
-	int proportional_signal_previous;
-	int num_of_white = 0;
-	int leftpixel = 0;
-	int threshold = determine_average();
-
-	while(true){
-
-		bool seeLine = false;					// Whether or not the line can be seen.
-		int current_error = 0;
-		num_of_white = 0;
-
-		take_picture();
-
-		for(int i=0; i<320; i++){
-			int error = average_error(i);
-
-			if(error >= threshold){				// If RPi sees 'white'
-				error = 1;						// Converts to binary represenation
-				seeLine = true;					// The Line can be seen
-				num_of_white++;
-			}
-			else{								// If RPi sees 'black'
-				error = 0;						// Converts to binary representation
-			}
-
-			current_error = current_error + error*(i-160);
-		}
-
-		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
-
-		// Print checks:
-		//printf("Current Error: %d\n", current_error);
-		//printf("Proportional Signal: %d\n", proportional_signal);
-		//printf("Number of White Pixels: %d\n", num_of_white);
-
-		if(num_of_white<50){
-			if(leftpixel == 1)
-			{
-				set_motor(1, -40);
-				set_motor(2, 40);
-				printf("Bend: L, Turn: Left\n");
-			}
-			else
-			{
-				set_motor(1, 40);
-				set_motor(2, -40);
-				printf("Bend: L, Turn: Right\n");
-			}
-			Sleep(0,600000);
-			
-		}
-		if(num_of_white>=280){
-			printf("Bend: T, Turn: Left\n");
-			set_motor(1, 35);
-			set_motor(2, 35);
-			Sleep(0,800000);
-			set_motor(1, -40);
-			set_motor(2, 40);
-			Sleep(0,900000);
-			
-			
-		}
-		else if(seeLine){
-			set_motor(1, 35+proportional_signal);
-			set_motor(2, 35-proportional_signal);
-			proportional_signal_previous = proportional_signal;
-		}
-		else{
-			set_motor(1, 50+proportional_signal_previous*7);
-			set_motor(2, 50-proportional_signal_previous*7);
-		}
-		
-		if(average_error(80) >= threshold) 
-		{
-			leftpixel = 1;
-		}
-		else{
-			leftpixel = 0;
-		}
-		
-		int redAvr = (get_pixel(120, 120, 0) + get_pixel(160, 120, 0) + get_pixel(200, 120, 0))/3;
-		printf("Red: %d\n",redAvr);
-		if(redAvr > 200)
-		{
-			printf("SWITCHING TO WALLED CODE, Red: %d\n",redAvr);
-			return;
-		}
-		
-	testClock++;
-	}
-	set_motor(1, 0);
-	set_motor(2, 0);
-	return;
-
-}
-*/
 void Complete_until_maze(){ //Experimental
 	//Define local variables
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
