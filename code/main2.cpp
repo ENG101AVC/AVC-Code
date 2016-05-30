@@ -41,7 +41,7 @@ int determine_average(){
 		}
 	}
 
-	average = (max+min)/2;
+	average = (max+min)/2 + min;
 	return average;
 }
 
@@ -144,7 +144,7 @@ void Complete_until_maze(){ //Experimental
 	int leftpixel = 0;
 	int rightpixel = 0;
 	int frontpixel = 0;
-	int threshold = determine_average() + 50;
+	int threshold = determine_average();
 	while(true){
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
