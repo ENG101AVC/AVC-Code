@@ -79,13 +79,14 @@ extern "C" int Sleep( int sec , int usec );
 
 
 
-void Complete_until_maze(){
-	
+void Complete_until_maze(){ //Experimental
 	//Define local variables
 	int testClock = 0;							// For testing the RPi.  Can terminate movement.
 	int proportional_signal_previous;
 	int num_of_white = 0;
 	int leftpixel = 0;
+	int rightpixel = 0;
+	int frontpixel = 0;
 	int threshold = determine_average();
 
 	while(true){
@@ -117,57 +118,62 @@ void Complete_until_maze(){
 		//printf("Current Error: %d\n", current_error);
 		//printf("Proportional Signal: %d\n", proportional_signal);
 		//printf("Number of White Pixels: %d\n", num_of_white);
-
-		if(num_of_white<50){
-			if(leftpixel == 1)
-			{
-				set_motor(1, -40);
-				set_motor(2, 40);
+		
+		//Turn
+		if(num_of_white > 150){
+			if(average_error(0) >= threshold){
+				leftpixel = 1;
+			}
+			else{
+				leftpixel = 0;
+			}
+		
+			if(average_error(320) >= threshold) {
+				rightpixel = 1;
+			}
+			else{
+				rightpixel = 0;
+			}
+			if(get_pixel(160, 0, 3) >= threshold) {
+				frontpixel = 1;
+			}
+			else{
+				frontpixel = 0;
+			}
+			
+			
+			if(leftpixel == 1 && rightpixel == 1 && num_of_white>310 && frontpixel == 0){
+				printf("Bend: T, Turn: Left\n");
+				proportional_signal = -20;
+			}
+			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
 				printf("Bend: L, Turn: Left\n");
+				proportional_signal = -20;
 			}
-			else
-			{
-				set_motor(1, 40);
-				set_motor(2, -40);
+			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 0){
 				printf("Bend: L, Turn: Right\n");
+				proportional_signal = 20;
 			}
-			Sleep(0,600000);
+			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 1){
+				printf("Bend: -|, Turn: Front\n");
+				proportional_signal = 0;
+			}
+			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 1){
+				printf("Bend: |-, Turn: Front\n");
+				proportional_signal = 0;
+			}
 			
 		}
-		if(num_of_white>=280){
-			printf("Bend: T, Turn: Left\n");
-			set_motor(1, 35);
-			set_motor(2, 35);
-			Sleep(0,800000);
-			set_motor(1, -40);
-			set_motor(2, 40);
-			Sleep(0,900000);
-			
-			
-		}
-		else if(seeLine){
-			set_motor(1, 35+proportional_signal);
-			set_motor(2, 35-proportional_signal);
+		
+		if(seeLine){
+			set_motor(1, 30+proportional_signal);
+			set_motor(2, 30-proportional_signal);
 			proportional_signal_previous = proportional_signal;
 		}
-		else{
-			set_motor(1, 50+proportional_signal_previous*7);
-			set_motor(2, 50-proportional_signal_previous*7);
-		}
 		
-		if(average_error(80) >= threshold) 
+		if(read_analog(0) > 550 && read_analog(1) > 550)  //If on Red Square (Maze Detector)
 		{
-			leftpixel = 1;
-		}
-		else{
-			leftpixel = 0;
-		}
-		
-		int redAvr = (get_pixel(120, 120, 0) + get_pixel(160, 120, 0) + get_pixel(200, 120, 0))/3;
-		printf("Red: %d\n",redAvr);
-		if(redAvr > 200)
-		{
-			printf("SWITCHING TO WALLED CODE, Red: %d\n",redAvr);
+			printf("SWITCHING TO WALLED CODE\n");
 			return;
 		}
 		
