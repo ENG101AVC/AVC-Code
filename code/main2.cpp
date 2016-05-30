@@ -215,6 +215,12 @@ void Complete_until_maze(){ //Experimental
 				printf("Bend: |-, Turn: Front\n");
 				proportional_signal = 0;
 			}
+			else if(num_of_white<20){
+				printf("Bend: End, Turn: Front\n");
+				set_motor(1, -40);
+				set_motor(2, -40);
+				Sleep(0,500000);
+			}
 			
 		}
 		
