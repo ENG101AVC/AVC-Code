@@ -146,18 +146,13 @@ void Complete_until_maze(){ //Experimental
 	int rightpixel = 0;
 	int frontpixel = 0;
 	int threshold = determine_average();
-
 	while(true){
-
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
 		num_of_white = 0;
-
 		take_picture();
-
 		for(int i=0; i<320; i++){
 			int error = average_error(i);
-
 			if(error >= threshold){				// If RPi sees 'white'
 				error = 1;						// Converts to binary represenation
 				seeLine = true;					// The Line can be seen
@@ -166,12 +161,9 @@ void Complete_until_maze(){ //Experimental
 			else{								// If RPi sees 'black'
 				error = 0;						// Converts to binary representation
 			}
-
 			current_error = current_error + error*(i-160);
 		}
-
 		int proportional_signal = (int) (current_error/PROPORTIONAL);	//Sets proportional signal
-
 		// Print checks:
 		//printf("Current Error: %d\n", current_error);
 		//printf("Proportional Signal: %d\n", proportional_signal);
@@ -179,14 +171,14 @@ void Complete_until_maze(){ //Experimental
 		
 		//Turn
 		if(num_of_white > 150){
-			if(average_error(40) >= threshold){
+			if(average_error(0) >= threshold){
 				leftpixel = 1;
 			}
 			else{
 				leftpixel = 0;
 			}
 		
-			if(average_error(280) >= threshold) {
+			if(average_error(320) >= threshold) {
 				rightpixel = 1;
 			}
 			else{
@@ -200,13 +192,17 @@ void Complete_until_maze(){ //Experimental
 			}
 			
 			
-			 if(leftpixel == 1&& frontpixel == 0){
+			if(leftpixel == 1 && rightpixel == 1 && num_of_white>310 && frontpixel == 0){
+				printf("Bend: T, Turn: Left\n");
+				proportional_signal = -20;
+			}
+			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
 				printf("Bend: L, Turn: Left\n");
-				proportional_signal = -25;
+				proportional_signal = -20;
 			}
 			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 0){
 				printf("Bend: L, Turn: Right\n");
-				proportional_signal = -25;
+				proportional_signal = 20;
 			}
 			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 1){
 				printf("Bend: -|, Turn: Front\n");
@@ -236,7 +232,6 @@ void Complete_until_maze(){ //Experimental
 	set_motor(1, 0);
 	set_motor(2, 0);
 	return;
-
 }
 
 // This is the Main() method.  Controls the holistic behaviour or the RPi.
