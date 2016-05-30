@@ -168,7 +168,7 @@ void Complete_until_maze(){ //Experimental
 		//printf("Number of White Pixels: %d\n", num_of_white);
 		
 		//Turn
-		if(num_of_white > 150){
+		if(num_of_white > 120){
 			if(average_error(0) >= threshold){
 				leftpixel = 1;
 			}
@@ -190,7 +190,7 @@ void Complete_until_maze(){ //Experimental
 			}
 			
 			
-			if(leftpixel == 1 && rightpixel == 1 && num_of_white>310 && frontpixel == 0){
+			if(leftpixel == 1 && rightpixel == 1 && frontpixel == 0){
 				printf("Bend: T, Turn: Left\n");
 				proportional_signal = -25;
 			}
