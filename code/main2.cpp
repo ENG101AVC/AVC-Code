@@ -98,7 +98,7 @@ void follow_the_line(){
 		for(int i=0; i<320; i++){
 			int error = average_error(i);
 
-			if(error >= threshold + 20){				// If RPi sees 'white'
+			if(error >= threshold){				// If RPi sees 'white'
 				error = 1;						// Converts to binary represenation
 				seeLine = true;					// The Line can be seen
 				num_of_white++;
@@ -144,7 +144,7 @@ void Complete_until_maze(){ //Experimental
 	int leftpixel = 0;
 	int rightpixel = 0;
 	int frontpixel = 0;
-	int threshold = determine_average();
+	int threshold = determine_average() + 35;
 	while(true){
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
