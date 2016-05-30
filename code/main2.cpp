@@ -168,7 +168,7 @@ void Complete_until_maze(){ //Experimental
 		//printf("Number of White Pixels: %d\n", num_of_white);
 		
 		//Turn
-		if(num_of_white > 150){
+		if(num_of_white > 80){
 			if(average_error(0) >= threshold){
 				leftpixel = 1;
 			}
