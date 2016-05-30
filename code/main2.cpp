@@ -98,7 +98,7 @@ void follow_the_line(){
 		for(int i=0; i<320; i++){
 			int error = average_error(i);
 
-			if(error >= threshold){				// If RPi sees 'white'
+			if(error >= threshold + 20){				// If RPi sees 'white'
 				error = 1;						// Converts to binary represenation
 				seeLine = true;					// The Line can be seen
 				num_of_white++;
