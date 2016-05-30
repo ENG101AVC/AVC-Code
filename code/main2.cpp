@@ -220,7 +220,7 @@ void Complete_until_maze(){ //Experimental
 			Sleep(0,100000);
 		}
 		
-		if(read_analog(0) > 550 && read_analog(1) > 550)  //If on Red Square (Maze Detector)
+		if(read_analog(0) > 400 && read_analog(1) > 400)  //If on Red Square (Maze Detector) [550]
 		{
 			printf("SWITCHING TO WALLED CODE\n");
 			return;
@@ -244,7 +244,9 @@ int main(){
 	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
 
-
+	set_motor(1, 50);
+	set_motor(2, 50);
+	Sleep(3,0);
 	//Emergency Stop
 	set_motor(1, 0);
 	set_motor(2, 0);
