@@ -178,7 +178,7 @@ void Complete_until_maze(){ //Experimental
 		//printf("Number of White Pixels: %d\n", num_of_white);
 		
 		//Turn
-		if(num_of_white > 160){
+		if(num_of_white > 150){
 			if(average_error(0) >= threshold){
 				leftpixel = 1;
 			}
@@ -224,8 +224,8 @@ void Complete_until_maze(){ //Experimental
 		}
 		
 		if(seeLine){
-			set_motor(1, 35+proportional_signal);
-			set_motor(2, 35-proportional_signal);
+			set_motor(1, 30+proportional_signal);
+			set_motor(2, 30-proportional_signal);
 			proportional_signal_previous = proportional_signal;
 		}
 		
@@ -250,7 +250,7 @@ int main(){
 	init(0);			// Initialise Hardware
 			//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 
-	network();			// Open Gate
+	//network();			// Open Gate
 	//Sleep(5,0);  //Walking to Track
 	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
