@@ -189,7 +189,7 @@ void Complete_until_maze(){ //Experimental
 			else{
 				frontpixel = 0;
 			}
-			printf("%d",num_of_white);
+			printf("%d\n",num_of_white);
 			
 			if(leftpixel == 1 && rightpixel == 1 && num_of_white>300 && frontpixel == 0){
 				printf("Bend: T, Turn: Left\n");
