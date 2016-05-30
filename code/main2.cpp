@@ -41,7 +41,7 @@ int determine_average(){
 		}
 	}
 
-	average = (max+min)/2 + min;
+	average = (max+min)/2;
 	return average;
 }
 
