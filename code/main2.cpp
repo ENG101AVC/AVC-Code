@@ -116,7 +116,7 @@ void follow_the_line(){
 			printf("SWITCHING TO TURNING CODE\n");
 			set_motor(1, 40);
 			set_motor(2, 40);
-			Sleep(0,500000);
+			Sleep(0,700000);
 			return;
 		}
 		else if(seeLine){
@@ -144,7 +144,7 @@ void Complete_until_maze(){ //Experimental
 	int leftpixel = 0;
 	int rightpixel = 0;
 	int frontpixel = 0;
-	int threshold = determine_average() + 35;
+	int threshold = determine_average() + 50;
 	while(true){
 		bool seeLine = false;					// Whether or not the line can be seen.
 		int current_error = 0;
