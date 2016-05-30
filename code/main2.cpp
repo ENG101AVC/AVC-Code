@@ -116,6 +116,7 @@ void follow_the_line(){
 			printf("SWITCHING TO TURNING CODE\n");
 			set_motor(1, 40);
 			set_motor(2, 40);
+			Sleep(0,500000);
 			return;
 		}
 		else if(seeLine){
@@ -190,7 +191,11 @@ void Complete_until_maze(){ //Experimental
 			}
 			
 			
-			if(leftpixel == 1 && rightpixel == 1 && num_of_white>310 && frontpixel == 0){
+			if(leftpixel == 1 && rightpixel == 1 && num_of_white>300 && frontpixel == 0){
+				printf("Bend: T, Turn: Left\n");
+				proportional_signal = -40;
+			}
+			else if(leftpixel == 1 && rightpixel == 1 && num_of_white>300 && frontpixel == 1){
 				printf("Bend: T, Turn: Left\n");
 				proportional_signal = -40;
 			}
