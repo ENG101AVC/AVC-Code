@@ -217,6 +217,7 @@ void Complete_until_maze(){ //Experimental
 			set_motor(1, 30+proportional_signal);
 			set_motor(2, 30-proportional_signal);
 			proportional_signal_previous = proportional_signal;
+			Sleep(0,100000);
 		}
 		
 		if(read_analog(0) > 550 && read_analog(1) > 550)  //If on Red Square (Maze Detector)
