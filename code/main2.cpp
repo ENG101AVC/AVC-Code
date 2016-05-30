@@ -202,11 +202,11 @@ void Complete_until_maze(){ //Experimental
 				printf("Bend: |-, Turn: Front\n");
 				proportional_signal = 0;
 			}
-			else if(leftpixel == 1 && rightpixel == 0){
+			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
 				printf("Bend: L, Turn: Left\n");
 				proportional_signal = -25;
 			}
-			else if(leftpixel == 0 && rightpixel == 1){
+			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 0){
 				printf("Bend: L, Turn: Right\n");
 				proportional_signal = 25;
 			}
