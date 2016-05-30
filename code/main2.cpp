@@ -219,7 +219,7 @@ void Complete_until_maze(){ //Experimental
 			}
 			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 1){
 				printf("Bend: |-, Turn: Front\n");
-				proportional_signal = 0
+				proportional_signal = 0;
 			}
 			
 		}
@@ -251,7 +251,7 @@ int main(){
 	init(0);			// Initialise Hardware
 			//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 
-//	network();			// Open Gate
+	network();			// Open Gate
 	//Sleep(5,0);  //Walking to Track
 	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
