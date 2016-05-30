@@ -244,9 +244,6 @@ int main(){
 	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
 
-	set_motor(1, 50);
-	set_motor(2, 50);
-	Sleep(3,0);
 	//Emergency Stop
 	set_motor(1, 0);
 	set_motor(2, 0);
