@@ -12,8 +12,6 @@ extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 extern "C" int read_analog(int ch_adc);
-extern "C" int read_digital(int chan);
-extern "C" int select_IO(int chan, int direct);
 extern "C" int display_picture(int delay_sec, int delay_usec);
 
 const double PROPORTIONAL = 500;	// Proportional Constant
