@@ -114,9 +114,6 @@ void follow_the_line(){
 
 		if(num_of_white>=310){
 			printf("SWITCHING TO TURNING CODE\n");
-			set_motor(1, 40);
-			set_motor(2, 40);
-			Sleep(0,700000);
 			return;
 		}
 		else if(seeLine){
@@ -170,14 +167,14 @@ void Complete_until_maze(){ //Experimental
 		
 		//Turn
 		if(num_of_white > 150){
-			if(get_pixel(0, 120, 3) >= threshold){
+			if(average_error(0) >= threshold){
 				leftpixel = 1;
 			}
 			else{
 				leftpixel = 0;
 			}
 		
-			if(get_pixel(320, 120, 3) >= threshold) {
+			if(average_error(320) >= threshold) {
 				rightpixel = 1;
 			}
 			else{
@@ -189,15 +186,19 @@ void Complete_until_maze(){ //Experimental
 			else{
 				frontpixel = 0;
 			}
-			printf("%d\n",num_of_white);
 			
-			if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
+			
+			if(leftpixel == 1 && rightpixel == 1 && num_of_white>310 && frontpixel == 0){
+				printf("Bend: T, Turn: Left\n");
+				proportional_signal = -20;
+			}
+			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
 				printf("Bend: L, Turn: Left\n");
-				proportional_signal = -40;
+				proportional_signal = -20;
 			}
 			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 0){
 				printf("Bend: L, Turn: Right\n");
-				proportional_signal = 40;
+				proportional_signal = 20;
 			}
 			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 1){
 				printf("Bend: -|, Turn: Front\n");
