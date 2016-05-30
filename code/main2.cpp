@@ -210,6 +210,7 @@ void Complete_until_maze(){ //Experimental
 				printf("Bend: |-, Turn: Front\n");
 				proportional_signal = 0;
 			}
+			printf("%d\n",testClock);
 			
 		}
 		
