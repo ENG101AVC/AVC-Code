@@ -169,14 +169,14 @@ void Complete_until_maze(){ //Experimental
 		
 		//Turn
 		if(num_of_white > 120){
-			if(average_error(0) >= threshold){
+			if(average_error(20) >= threshold){
 				leftpixel = 1;
 			}
 			else{
 				leftpixel = 0;
 			}
 		
-			if(average_error(320) >= threshold) {
+			if(average_error(300) >= threshold) {
 				rightpixel = 1;
 			}
 			else{
@@ -202,11 +202,11 @@ void Complete_until_maze(){ //Experimental
 				printf("Bend: |-, Turn: Front\n");
 				proportional_signal = 0;
 			}
-			else if(leftpixel == 1 && rightpixel == 0 && frontpixel == 0){
+			else if(leftpixel == 1 && rightpixel == 0){
 				printf("Bend: L, Turn: Left\n");
 				proportional_signal = -25;
 			}
-			else if(leftpixel == 0 && rightpixel == 1 && frontpixel == 0){
+			else if(leftpixel == 0 && rightpixel == 1){
 				printf("Bend: L, Turn: Right\n");
 				proportional_signal = 25;
 			}
