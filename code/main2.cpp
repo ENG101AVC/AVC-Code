@@ -179,14 +179,14 @@ void Complete_until_maze(){ //Experimental
 		
 		//Turn
 		if(num_of_white > 150){
-			if(average_error(0) >= threshold){
+			if(average_error(40) >= threshold){
 				leftpixel = 1;
 			}
 			else{
 				leftpixel = 0;
 			}
 		
-			if(average_error(320) >= threshold) {
+			if(average_error(280) >= threshold) {
 				rightpixel = 1;
 			}
 			else{
@@ -200,7 +200,7 @@ void Complete_until_maze(){ //Experimental
 			}
 			
 			
-			if(leftpixel == 1 && rightpixel == 1 && num_of_white>318 && frontpixel == 0){
+			if(leftpixel == 1 && rightpixel == 1 && num_of_white>310 && frontpixel == 0){
 				printf("Bend: T, Turn: Left\n");
 				proportional_signal = -20;
 			}
@@ -250,7 +250,7 @@ int main(){
 	init(0);			// Initialise Hardware
 			//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 
-	network();			// Open Gate
+	//network();			// Open Gate
 	//Sleep(5,0);  //Walking to Track
 	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
