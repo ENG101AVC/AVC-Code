@@ -114,6 +114,8 @@ void follow_the_line(){
 
 		if(num_of_white>=310){
 			printf("SWITCHING TO TURNING CODE\n");
+			set_motor(1,40);
+			set_motor(2,40);
 			return;
 		}
 		else if(seeLine){
