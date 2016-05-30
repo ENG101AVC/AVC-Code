@@ -169,14 +169,14 @@ void Complete_until_maze(){ //Experimental
 		
 		//Turn
 		if(num_of_white > 150){
-			if(average_error(0) >= threshold){
+			if(get_pixel(0, 120, 3) >= threshold){
 				leftpixel = 1;
 			}
 			else{
 				leftpixel = 0;
 			}
 		
-			if(average_error(320) >= threshold) {
+			if(get_pixel(320, 120, 3) >= threshold) {
 				rightpixel = 1;
 			}
 			else{
