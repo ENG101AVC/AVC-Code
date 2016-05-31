@@ -1,6 +1,6 @@
 # AVC-Code
 
-This is 'Team WhereIsJulius' AVC challenge for ENGR101 of the year 2016, this repository will contain all of our code relating to this assignment.
+This is 'Team WhereIsJulius' AVC challenge for ENGR101 of the year 2016, this repository will contain all of our code relating to this assignment. Which gained a 70% in the final AVC with negative -2 for aesthetics.
 
 ## Project
 
