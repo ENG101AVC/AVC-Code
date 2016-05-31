@@ -214,8 +214,8 @@ void Complete_until_maze(){ //Experimental
 		}
 		
 		if(seeLine){
-			set_motor(1, 33+proportional_signal);
-			set_motor(2, 33-proportional_signal);
+			set_motor(1, 35+proportional_signal);
+			set_motor(2, 35-proportional_signal);
 			proportional_signal_previous = proportional_signal;
 			Sleep(0,100000);
 		}
