@@ -240,7 +240,7 @@ int main(){
 	init(0);			// Initialise Hardware
 			//Assigns a place in memory for average whiteness.	int proportional_signal_previous = 0;
 
-	network();			// Open Gate
+	//network();			// Open Gate
 	follow_the_line();
 	Complete_until_maze();    // Begin Following Line
 
