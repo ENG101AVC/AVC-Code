@@ -79,7 +79,7 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [ ] Theo: Attaching sensors to robot to deal with walls and obstructions - postponed - code not at sensor-requiring level yet
 - [ ] Julius: Contributing
 
-#### Week Five
+##### Week Five
 - [x] [ALL]: Progress update with team members ( - Julius)
 - [x] Rhaz: PID system functioning
 - [x] Jacob: PID system functioning
@@ -88,7 +88,7 @@ Our project is to design and build an autonomous vehicle using a Raspberry Pi wh
 - [x] Theo: Tune up battery clip
 - [x] Julius: Not show up or contact anyone - Set a realistic goal for Julius this week
 
-#### Week Six
+##### Week Six
 - [ ] [ALL]: Progress update with team members ( - Julius)
 - [ ] Rhaz: Quadrant 3 completed
 - [ ] Jacob: Quadrant 3 completed
