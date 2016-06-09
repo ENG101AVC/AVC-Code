@@ -1,41 +1,45 @@
 Updates:
-Started off with just the pi, a couple of motors with wheels and a board to hold them all together.
-Attatched all components to board - had some issues with screw sizes and space portioning.
+Week 1:
+  Started off with just the pi, a couple of motors with wheels and a board to hold them all together.
+  Attatched all components to board - had some issues with screw sizes and space portioning.
 
-Some of the terminal blocks on the R pi got in the way of the plastic spacers.
-To overcome this issue I switched the orientation of the R pi and the PCB and used just screws at the places where spacers 
-would not fit and cutting down longer spacers to fill gaps.
-This has enabled all points of the R pi and PCB to be secured.
+  Some of the terminal blocks on the R pi got in the way of the plastic spacers.
+  To overcome this issue I switched the orientation of the R pi and the PCB and used just screws at the places where spacers 
+  would not fit and cutting down longer spacers to fill gaps.
+  This has enabled all points of the R pi and PCB to be secured.
 
-Replaced the main board with a shorter board in the hopes that this would make it easier for the robot to traverse the maze.
+Week 3:
+  Replaced the main board with a shorter board in the hopes that this would make it easier for the robot to traverse the maze.
 
-Attached the camera using default parts, one of which I needed to cut a notch into to accommodate a bolt.
+  Attached the camera using default parts, one of which I needed to cut a notch into to accommodate a bolt.
 
-Replaced rear trolley wheel with a half ping pong ball in 3d printed socket (Third Wheel.stl).
-This is because the trolley wheel was just bad and wasn’t going to turn with the robot, the ping pong ball won’t turn but 
-has very little friction in all directions and is lower than the old wheel which balances the robot.
+  Replaced rear trolley wheel with a half ping pong ball in 3d printed socket (Third Wheel.stl).
+  This is because the trolley wheel was just bad and wasn’t going to turn with the robot, the ping pong ball won’t turn but 
+  has very little friction in all directions and is lower than the old wheel which balances the robot.
 
-Printed battery stand for top… there were…  issues (don’t worry I hate myself too).
+Week 4:
+  Printed battery stand for top… there were…  issues (don’t worry I hate myself too).
 
-Printed new battery frame, (which fits) Frame is in two parts the second part (which has not been printed yet) is a short 
-wall which fits around the battery to stop it from slipping side ways and the battery will be zip-tied or clipped (with 3d 
-printed clip) to the battery frame.
+  Printed new battery frame, (which fits) Frame is in two parts the second part (which has not been printed yet) is a short 
+  wall which fits around the battery to stop it from slipping side ways and the battery will be zip-tied or clipped (with 3d 
+  printed clip) to the battery frame.
 
-Printed rim for battery holder which is held in place by a two part battery clip that attaches underneath the battery frame 
-and screws together at the top. The rim functions well, however the clips take a long time to detach and are quite cumbersome 
-so will hopefully be rethought. (In the meantime they function perfectly well).
+  Printed rim for battery holder which is held in place by a two part battery clip that attaches underneath the battery frame 
+  and screws together at the top. The rim functions well, however the clips take a long time to detach and are quite cumbersome 
+  so will hopefully be rethought. (In the meantime they function perfectly well).
 
-Designed and printed new clips, they are easier to use but are not as secure, as such the old clips will continue to be used.
-For quadrant 4 the robot will use 2x medium range analogue sensors, on the left and right sides and a short range digital sensor 
-mounted on front of the camera.
-The side sensors have been bolted to the chasse with existing plastic right angle brackets.
-The front facing sensor will need a new 3d printed holder.
-An issue arose due to the length of the sensor wires. This has been solved temporarily by wrapping the excess around the Rpi 
-spacers, this stops the wires from getting in the way but should probably be tidied further.
+Week 5:
+  Designed and printed new clips, they are easier to use but are not as secure, as such the old clips will continue to be used.
+  For quadrant 4 the robot will use 2x medium range analogue sensors, on the left and right sides and a short range digital sensor 
+  mounted on front of the camera.
+  The side sensors have been bolted to the chasse with existing plastic right angle brackets.
+  The front facing sensor will need a new 3d printed holder.
+  An issue arose due to the length of the sensor wires. This has been solved temporarily by wrapping the excess around the Rpi 
+  spacers, this stops the wires from getting in the way but should probably be tidied further.
 
 
 Ideas:
-Possible case to put over robot to hide parts and make it aesthetically pleasing designs include;
-Dalek - possible issues with weight distribution, could overbalance when turning tight corners, size navigating maze(too big)
-Apache Helicoptor - possible issues with size navigating maze unless the rotors sit above the maze walls, no guns
-Dragon - possible issues with Rhaz accepting the idea
+  Possible case to put over robot to hide parts and make it aesthetically pleasing designs include;
+  Dalek - possible issues with weight distribution, could overbalance when turning tight corners, size navigating maze(too big)
+  Apache Helicoptor - possible issues with size navigating maze unless the rotors sit above the maze walls, no guns
+  Dragon - possible issues with Rhaz accepting the idea
